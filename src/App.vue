@@ -5,7 +5,9 @@
     <router-link to="/calendarview">Calendar</router-link> |
     <router-link to="/tutorials">tutorials</router-link> |
     <router-link to="/tutorial-details">tutorial-details</router-link> |
-    <router-link to="/add">add</router-link>
+    <router-link to="/add">add</router-link>|
+    <router-link to="/login">login</router-link>|
+    <router-link to="/signup">signup</router-link>
   </nav>
   <router-view/>
 </template>

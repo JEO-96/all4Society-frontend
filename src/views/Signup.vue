@@ -14,87 +14,58 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   </head>
   <body class="no-sidebar is-preload">
-  <div id="page-wrapper">
+
 
     <!-- Header -->
-    <div id="header">
-
-      <!-- Inner -->
-      <div class="inner">
-        <header>
-          <h1><a href="index.html" id="logo">회원가입</a></h1>
-        </header>
-      </div>
-
-      <!-- Nav -->
-      <nav id="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="#">Dropdown</a>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor</a></li>
-              <li><a href="#">Magna phasellus</a></li>
-              <li><a href="#">Etiam dolore nisl</a></li>
-              <li>
-                <a href="#">And a submenu &hellip;</a>
-                <ul>
-                  <li><a href="#">Lorem ipsum dolor</a></li>
-                  <li><a href="#">Phasellus consequat</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam dolore nisl</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Veroeros feugiat</a></li>
-            </ul>
-          </li>
-          <li><a href="left-sidebar.html">Left Sidebar</a></li>
-          <li><a href="right-sidebar.html">Right Sidebar</a></li>
-          <li><a href="no-sidebar.html">No Sidebar</a></li>
-        </ul>
-      </nav>
-  </div>
-    </div>
-
+    <div id="header"></div>
     <!-- Main -->
     <div class="wrapper style1">
-
       <div class="container">
         <article id="main" class="special">
           <header>
             <h2><a href="#">회원가입</a></h2>
-            <p>
-              입력란을 모두 작성해주세요
-            </p>
           </header>
             <section>
-              <form>
+              <form @submit.prevent="submitForm">
                 <div class="container2">
-                  <input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
-                  <input type="text" id="birth" name="birth" value="" placeholder="생년월일" required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="전화번호" required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="부서" required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="직급" required><br>
-                  <textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
+                  <label for="id">아이디</label>
+                  <input type="text" id="id" v-model="id"><br>
+                  <label for="password">비밀번호</label>
+                  <input type="password" id="password" v-model="pw"><br>
+                  <label for="passwordConfirm">비밀번호확인</label>
+                  <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
+                  <label for="phone">휴대폰 번호</label>
+                  <input type="text" id="phone" v-model="phone"><br>
+                  <label for="생년월일">생년월일</label>
+                  <input type="text" id="birth" v-model="birth"><br>
+                  <label for="introduce">자기소개</label>
+                  <textarea id="introduce" v-model="introduce"></textarea><br>
                   <input type="submit" value="회원가입"/>
                   <input type="button" value="뒤로가기"/>
                 </div>
               </form>
             </section>
-
         </article>
       </div>
-
     </div>
-
   </body>
   </html>
 </template>
 
 <script>
 export default {
-  name: "Signup"
-}
+  name: 'Signup',
+  data() {
+    return {
+      id: '',
+      pw: '',
+      pwConfirm: '',
+      phone: '',
+      birth: '',
+      introduce: ''
+    }
+  }
+};
 </script>
 
 <style scoped>
