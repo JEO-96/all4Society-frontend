@@ -2060,6 +2060,7 @@ input, select, textarea {
 	input[type="reset"],
 	button,
 	.button {
+		font-family: 'Humanbumsuk';
 		position: relative;
 		display: inline-block;
 		background: #6cc9c9;

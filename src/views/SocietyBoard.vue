@@ -125,9 +125,6 @@
 						</p>
 					</div>
 					</div>
-				<footer>
-					<a href="#" class="button">더 보기</a>
-				</footer>
 			</section>
 		</div>
 	</div>
