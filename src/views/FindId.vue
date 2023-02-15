@@ -65,17 +65,17 @@
           <p>
             입력란을 모두 작성해주세요
           </p>
-
+        </header>
           <section>
             <form>
               <div class="container2">
-                <input type="text" id="uname" name="uname" value="" placeholder="이름"required><br>
-                <input type="text" id="birth" name="birth" value="" placeholder="휴대폰번호"required><br>
-                <input type="button" id="uname" name="uname" value="인증번호받기" placeholder="전화번호"required><br>
+                <input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
+                <input type="text" id="birth" name="birth" value="" placeholder="휴대폰번호" required><br>
+                <input type="button" id="uname" name="uname" value="인증번호받기" placeholder="전화번호" required><br>
                 <br>
-                <input type="text" id="uname" name="uname" value="" placeholder="인증번호"required><br>
+                <input type="text" id="uname" name="uname" value="" placeholder="인증번호" required><br>
                 <input type="submit" value="신청"/>
-                <input type="button" value="뒤로가기"></button>
+                <input type="button" value="뒤로가기"/>
               </div>
             </form>
           </section>
@@ -84,16 +84,6 @@
     </div>
 
   </div>
-
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-
   </body>
   </html>
 </template>
