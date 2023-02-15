@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import StudentListView from '../views/StudentListView.vue'
 import StudentView from '../views/StudentView.vue'
 import CalendarView from '../views/CalendarView.vue'
 import Login from "@/views/Login.vue";
@@ -7,13 +6,16 @@ import FindId from "@/views/FindId.vue";
 import FindPw from "@/views/FindPw.vue";
 import MyInfo from "@/views/MyInfo.vue";
 import Signup from "@/views/Signup.vue";
+import Register from "@/views/Register.vue";
+import HomeView from '../views/HomeView.vue';
+
 
 
 const routes = [
   {
     path: '/studentlist',
     name: 'studentlist',
-    component: StudentListView
+    component: Register
   },
   {
     path: '/student',
@@ -26,10 +28,9 @@ const routes = [
     component: CalendarView
   },
   {
-    path: "/",
-    alias: "/tutorials",
-    name: "tutorials",
-    component: () => import("../components/TutorialsList")
+    path: '/',
+    name: 'home',
+    component: HomeView
   },
   {
     path: "/tutorials/:id",
