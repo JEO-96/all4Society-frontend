@@ -25,35 +25,6 @@
           <h1><a href="index.html" id="logo">All4SOCIETY</a></h1>
         </header>
       </div>
-
-      <!-- Nav -->
-      <nav id="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="#">Dropdown</a>
-            <ul>
-              <li><a href="#">Lorem ipsum dolor</a></li>
-              <li><a href="#">Magna phasellus</a></li>
-              <li><a href="#">Etiam dolore nisl</a></li>
-              <li>
-                <a href="#">And a submenu &hellip;</a>
-                <ul>
-                  <li><a href="#">Lorem ipsum dolor</a></li>
-                  <li><a href="#">Phasellus consequat</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam dolore nisl</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Veroeros feugiat</a></li>
-            </ul>
-          </li>
-          <li><a href="left-sidebar.html">Left Sidebar</a></li>
-          <li><a href="right-sidebar.html">Right Sidebar</a></li>
-          <li><a href="no-sidebar.html">No Sidebar</a></li>
-        </ul>
-      </nav>
-
     </div>
 
     <!-- Main -->
@@ -67,9 +38,11 @@
           <section>
             <form>
               <div class="container2">
+                <label for="id">아이디</label>
                 <input type="text" id="uid" name="uid" value="" placeholder="아이디" required><br>
-                <input type="text" id="uphone" name="uphone" value="" placeholder="전화번호" required><br>
-                <input type="button" id="uname" name="uname" value="인증번호 전송" placeholder="전화번호" required><br>
+                <label for="phone">아이디</label>
+                <input type="text" id="phone" placeholder="전화번호" required><br>
+                <input type="button" value="인증번호 전송" placeholder="전화번호" required><br>
                 <br>
                 <input type="text" id="checkPhone" name="checkPhone" value="" placeholder="인증번호" required><br>
                 <input type="submit" value="신청"/>

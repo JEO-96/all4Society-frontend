@@ -17,7 +17,14 @@
 
 
     <!-- Header -->
-    <div id="header"></div>
+    <div id="header">
+      <!-- Inner -->
+      <div class="inner">
+        <header>
+          <h1><a href="index.html" id="logo">All4SOCIETY</a></h1>
+        </header>
+      </div>
+    </div>
     <!-- Main -->
     <div class="wrapper style1">
       <div class="container">
@@ -46,6 +53,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Login",
   data() {
     return {
