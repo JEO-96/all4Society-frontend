@@ -53,7 +53,7 @@
           <li><a href="no-sidebar.html">No Sidebar</a></li>
         </ul>
       </nav>
-
+    </div>
     </div>
 
     <!-- Main -->
@@ -68,14 +68,10 @@
             <section>
               <form>
                 <div class="container2">
-                  <input type="text" id="uname" name="uname" value="" placeholder="이름"required><br>
-                  <input type="text" id="birth" name="birth" value="" placeholder="생년월일"required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="전화번호"required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="부서"required><br>
-                  <input type="text" id="uname" name="uname" value="" placeholder="직급"required><br>
-                  <textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
+                  <input type="text" id="uname" name="uname" value="" placeholder="아이디" required><br>
+                  <input type="password" id="birth" name="birth" value="" placeholder="비밀번호" required><br>
                   <input type="submit" value="수정하기"/>
-                  <input type="button" value="뒤로가기"></button>
+                  <input type="button" value="뒤로가기"/>
                 </div>
               </form>
             </section>
@@ -84,15 +80,6 @@
       </div>
 
     </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
 
   </body>
   </html>

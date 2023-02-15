@@ -2,6 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import StudentListView from '../views/StudentListView.vue'
 import StudentView from '../views/StudentView.vue'
 import CalendarView from '../views/CalendarView.vue'
+import Login from "@/views/Login.vue";
+import FindId from "@/views/FindId.vue";
+import FindPw from "@/views/FindPw.vue";
+import MyInfo from "@/views/MyInfo.vue";
+import Signup from "@/views/Signup.vue";
 
 
 const routes = [
@@ -35,6 +40,31 @@ const routes = [
     path: "/add",
     name: "add",
     component: () => import("../components/AddTutorial")
+  },
+  {
+    path: "/FindId",
+    name: "findId",
+    component: FindId
+  },
+  {
+    path: "/FindPw",
+    name: "findPw",
+    component: FindPw
+  },
+  {
+    path: "/Login",
+    name: "login",
+    component: Login
+  },
+  {
+    path: "/MyInfo",
+    name: "myInfo",
+    component: MyInfo
+  },
+  {
+    path: "/Signup",
+    name: "Signup",
+    component: Signup
   }
 ]
 
