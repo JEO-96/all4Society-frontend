@@ -38,7 +38,7 @@
 
 <div class="container">
 	<article id="main" class="special">
-			<h2><a href="#">동호회 게시판 생성 신청</a></h2>
+			<h2><a href="#">동호회 게시판 생성 신청</a></h2><hr>
 		
 <!-- Main -->
 <div class="wrapper style1">
@@ -53,7 +53,7 @@
 						골프 뉴비부터 고인물까지 모두 환영합니다.
 					</p>
 				</header>
-				<a href="register.html" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+				<a href="register.html" class="image featured"><img :src="img2" alt=""></a>
 				<p>
 					설명~
 				</p>
@@ -98,7 +98,7 @@
 				</p>
 				<div class="row gtr-50">
 					<div class="col-4">
-						<a href="#" class="image fit"><img src="images/pic10.jpg" alt="" /></a>
+						<a href="#" class="image fit"><img :src="img2" alt=""></a>
 					</div>
 					<div class="col-8">
 						<h4>회장</h4>
@@ -107,7 +107,7 @@
 						</p>
 					</div>
 					<div class="col-4">
-						<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+						<a href="#" class="image fit"><img :src="img2" alt=""></a>
 					</div>
 					<div class="col-8">
 						<h4>부회장</h4>
@@ -116,7 +116,7 @@
 						</p>
 					</div>
 					<div class="col-4">
-						<a href="#" class="image fit"><img src="images/pic12.jpg" alt="" /></a>
+						<a href="#" class="image fit"><img :src="img2" alt=""></a>
 					</div>
 					<div class="col-8">
 						<h4>회원1</h4>
@@ -131,7 +131,7 @@
 	<hr />
 	<div class="row">
 		<article class="col-4 col-12-mobile special">
-			<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+			<a href="#" class="image featured"><img :src="img2" alt=""></a>
 			<header>
 				<h3><a href="#">1월 첫째 주 활동</a></h3>
 			</header>
@@ -140,7 +140,7 @@
 			</p>
 		</article>
 		<article class="col-4 col-12-mobile special">
-			<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+			<a href="#" class="image featured"><img :src="img2" alt=""></a>
 			<header>
 				<h3><a href="#">1월 첫째 주 활동</a></h3>
 			</header>
@@ -149,7 +149,7 @@
 			</p>
 		</article>
 		<article class="col-4 col-12-mobile special">
-			<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+			<a href="#" class="image featured"><img :src="img2" alt=""></a>
 			<header>
 				<h3><a href="#">1월 첫째 주 활동</a></h3>
 			</header>
@@ -201,11 +201,18 @@
 </html>
   </template>
   
-  <script>
-  export default {
-    name: "MyIndo"
-  }
-  </script>
+<script>
+export default{
+  data : () => ({
+    img1 : require(`@/images/pic01.jpg`),
+    img2 : require(`@/images/pic01.jpg`),
+    img3 : require(`@/images/pic01.jpg`),
+    img4 : require(`@/images/pic01.jpg`),
+    img5 : require(`@/images/pic01.jpg`)
+  })
+  
+}
+</script>
   
   <style scoped>
   
