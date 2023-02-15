@@ -1,58 +1,117 @@
+
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+
+  <div id="page-wrapper">
+
+<!-- Header -->
+  <div id="header">
+
+    <!-- Inner -->
+      <div class="inner">
+        <header>
+          <h1><router-link to="/">Home</router-link></h1>
+          <hr />
+          <p>AllTogether</p>
+        </header>
+        <footer>
+          <router-link to="/">Home</router-link>
+        </footer>
+      </div>
+
+    <!-- Nav -->
+
+
   </div>
+<!-- Banner -->
+  <section id="banner">
+    <header>
+      <h2>동호회 모집</h2>
+      <p>
+        A lectus varius nisl aenean at Tempus orci cursus nec auctor morbi cep non dictum.
+      </p>
+    </header>
+  </section>
+
+<!-- Carousel -->
+  <section class="carousel">
+    <div class="reel">
+
+      <article>
+        <a href="societyBoard.html" class="image featured"><img :src="img1" alt="">           </a>
+ 
+        <header>
+          <h3><a href="#">Pulvinar sagittis congue</a></h3>
+        </header>
+        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+      </article>
+
+      <article>
+        <a href="societyBoard.html" class="image featured"><img :src="img2" alt="">  </a>
+        <header>
+          <h3><a href="#">Fermentum sagittis proin</a></h3>
+        </header>
+        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+      </article>
+
+      <article>
+        <a href="societyBoard.html" class="image featured"><img :src="img3" alt="">  </a>
+        <header>
+          <h3><a href="#">Sed quis rhoncus placerat</a></h3>
+        </header>
+        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+      </article>
+
+      <article>
+        <a href="societyBoard.html" class="image featured"><img :src="img4" alt="">  </a>
+        <header>
+          <h3><a href="#">Ultrices urna sit lobortis</a></h3>
+        </header>
+        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+      </article>
+
+  
+
+    </div>
+  </section>
+
+<!-- Footer -->
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Contact -->
+            <section class="contact">
+              <header>
+                <h3>Nisl turpis nascetur interdum?</h3>
+              </header>
+              <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+            </section>
+
+          <!-- Copyright -->
+            <div class="copyright">
+              <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+              </ul>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+export default{
+  data : () => ({
+    img1 : require(`../images/pic01.jpg`),
+    img2 : require(`@/images/pic01.jpg`),
+    img3 : require(`@/images/pic01.jpg`),
+    img4 : require(`@/images/pic01.jpg`),
+    img5 : require(`@/images/pic01.jpg`)
+  })
+  
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
