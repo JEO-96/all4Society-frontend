@@ -9,13 +9,10 @@
     <!-- Inner -->
       <div class="inner">
         <header>
-          <h1><router-link to="/">Home</router-link></h1>
+          <h1><router-link to="/">All4SOCIETY</router-link></h1>
           <hr />
           <p>AllTogether</p>
         </header>
-        <footer>
-          <router-link to="/">Home</router-link>
-        </footer>
       </div>
 
     <!-- Nav -->
@@ -37,34 +34,34 @@
     <div class="reel">
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img :src="img1" alt="">           </a>
+       <img :src="img1" alt="">    
  
         <header>
-          <h3><a href="#">Pulvinar sagittis congue</a></h3>
+          <h3><router-link to="/societyBoard">골프 동호회</router-link></h3>
         </header>
         <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img :src="img2" alt="">  </a>
+        <img :src="img2" alt="">  
         <header>
-          <h3><a href="#">Fermentum sagittis proin</a></h3>
+          <h3><router-link to="/societyBoard">골프 동호회</router-link></h3>
         </header>
         <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img :src="img3" alt="">  </a>
+       <img :src="img3" alt="">
         <header>
-          <h3><a href="#">Sed quis rhoncus placerat</a></h3>
+          <h3><router-link to="/societyBoard">골프 동호회</router-link></h3>
         </header>
         <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img :src="img4" alt="">  </a>
+        <img :src="img4" alt=""> 
         <header>
-          <h3><a href="#">Ultrices urna sit lobortis</a></h3>
+          <h3><router-link to="/societyBoard">골프 동호회</router-link></h3>
         </header>
         <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
       </article>
@@ -106,7 +103,7 @@
 <script>
 export default{
   data : () => ({
-    img1 : require(`../images/pic01.jpg`),
+    img1 : require(`@/images/pic01.jpg`),
     img2 : require(`@/images/pic01.jpg`),
     img3 : require(`@/images/pic01.jpg`),
     img4 : require(`@/images/pic01.jpg`),

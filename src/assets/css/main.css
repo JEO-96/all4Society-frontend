@@ -21,7 +21,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline
+	;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -85,7 +86,7 @@ input, select, textarea {
 		color: #5b5b5b;
 		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Humanbumsuk';
 		font-weight: 300;
 	}
 
@@ -103,7 +104,7 @@ input, select, textarea {
 	input, textarea, select {
 		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Humanbumsuk';
 		font-weight: 300;
 	}
 
@@ -111,6 +112,7 @@ input, select, textarea {
 		font-weight: 400;
 		color: #483949;
 		line-height: 1.25em;
+		font-family: 'Humanbumsuk';
 	}
 
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -184,6 +186,7 @@ input, select, textarea {
 
 	p {
 		text-align: justify;
+		font-family: 'Humanbumsuk';
 	}
 
 	br.clear {
@@ -2126,7 +2129,7 @@ input, select, textarea {
 			text-rendering: auto;
 			line-height: 1;
 			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
+			font-family: 'Humanbumsuk';
 			font-weight: 400;
 		}
 
@@ -2144,7 +2147,7 @@ input, select, textarea {
 		}
 
 		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
+			font-family: 'Humanbumsuk';
 		}
 
 		.icon.circled {
@@ -2294,6 +2297,7 @@ input, select, textarea {
 		padding: 1.5em 0 1.5em 0;
 		z-index: 1;
 		overflow: hidden;
+		font-family: 'Humanbumsuk';
 	}
 
 		#nav > ul {
@@ -2910,7 +2914,7 @@ input, select, textarea {
 						text-rendering: auto;
 						line-height: 1;
 						text-transform: none !important;
-						font-family: 'Font Awesome 5 Free';
+						font-family: 'Humanbumsuk';
 						font-weight: 900;
 					}
 

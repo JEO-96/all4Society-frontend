@@ -7,15 +7,30 @@ import FindPw from "@/views/FindPw.vue";
 import MyInfo from "@/views/MyInfo.vue";
 import Signup from "@/views/Signup.vue";
 import Register from "@/views/Register.vue";
+import RegisterSociety from "@/views/RegisterSociety.vue";
+import SocietyBoard from "@/views/SocietyBoard.vue";
+
+
 import HomeView from '../views/HomeView.vue';
+
 
 
 
 const routes = [
   {
-    path: '/studentlist',
-    name: 'studentlist',
+    path: '/register',
+    name: 'register',
     component: Register
+  },
+  {
+    path: '/registerSociety',
+    name: 'registerSociety',
+    component: RegisterSociety
+  },
+  {
+    path: '/societyBoard',
+    name: 'societyBoard',
+    component: SocietyBoard
   },
   {
     path: '/student',

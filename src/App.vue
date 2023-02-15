@@ -1,7 +1,7 @@
 <template>
   <nav id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/studentlist">StudentList</router-link> |
+    <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
     <router-link to="/calendarview">Calendar</router-link> |
     <router-link to="/tutorials">tutorials</router-link> |
     <router-link to="/tutorial-details">tutorial-details</router-link> |

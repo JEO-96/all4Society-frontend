@@ -21,47 +21,47 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<div id="header">
+			<div id="header">
 
-					<!-- Inner -->
-						<div class="inner">
-							<header>
-								<h1><a href="index.html" id="logo">All4SOCIETY</a></h1>
-							</header>
-						</div>
+<!-- Inner -->
+	<div class="inner">
+		<header>
+			<h1><a href="/" id="logo">All4SOCIETY</a></h1>
+		</header>
+	</div>
 
-					<!-- Nav -->
-						
 
-				</div>
+</div>
 
-			<!-- Main -->
-				<div class="wrapper style1">
+<!-- Main -->
+<div class="wrapper style1">
 
-					<div class="container">
-						<article id="main" class="special">
+<div class="container">
+	<article id="main" class="special">
+			<h2><a href="#">동호회 게시판 생성 신청</a></h2>
+		
+		<section>
+			<form>
+				<div class="container2">
+				<input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
+				<input type="text" id="birth" name="birth" value="" placeholder="생년월일" required><br>
+				<input type="text" id="uname" name="uname" value="" placeholder="전화번호" required><br>
+				<input type="text" id="uname" name="uname" value="" placeholder="부서" required><br>
+				<input type="text" id="uname" name="uname" value="" placeholder="직급" required><br>
+				<input type="text" id="uname" name="uname" value="" placeholder="동아리명" required><br>
+				<input type="text" id="uname" name="uname" value="" placeholder="현재 동아리 인원" required><br>
+				
+				<textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
+					<input type="submit" value="신청"/>&nbsp;&nbsp;&nbsp;
+					<input type="button" value="뒤로가기">
+			</div>
+			</form>
+		</section>
+		
+	</article>
+</div>
 
-								<h2><a href="#">가입 신청</a></h2>
-							
-							<section>
-								<form>
-									<div class="container2">
-									<input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
-									<input type="text" id="birth" name="birth" value="" placeholder="생년월일" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="전화번호" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="부서" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="직급" required><br>
-									<textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
-										<input type="submit" value="신청"/>&nbsp;&nbsp;&nbsp;
-										<input type="button" value="뒤로가기">
-								</div>
-								</form>
-							</section>
-							
-						</article>
-					</div>
-
-				</div>
+</div>
 
 			<!-- Footer -->
   <div id="footer">
