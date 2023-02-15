@@ -55,7 +55,8 @@
     <div class="reel">
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
+        <a href="societyBoard.html" class="image featured"><img :src="img1" alt="">           </a>
+ 
         <header>
           <h3><a href="#">Pulvinar sagittis congue</a></h3>
         </header>
@@ -63,7 +64,7 @@
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+        <a href="societyBoard.html" class="image featured"><img :src="img2" alt="">  </a>
         <header>
           <h3><a href="#">Fermentum sagittis proin</a></h3>
         </header>
@@ -71,7 +72,7 @@
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+        <a href="societyBoard.html" class="image featured"><img :src="img3" alt="">  </a>
         <header>
           <h3><a href="#">Sed quis rhoncus placerat</a></h3>
         </header>
@@ -79,60 +80,14 @@
       </article>
 
       <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+        <a href="societyBoard.html" class="image featured"><img :src="img4" alt="">  </a>
         <header>
           <h3><a href="#">Ultrices urna sit lobortis</a></h3>
         </header>
         <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
       </article>
 
-      <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Varius magnis sollicitudin</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
-
-      <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Pulvinar sagittis congue</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
-
-      <article>
-        <a href="societyBoard.html" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Fermentum sagittis proin</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
-
-      <article>
-        <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
-
-      <article>
-        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Ultrices urna sit lobortis</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
-
-      <article>
-        <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-        <header>
-          <h3><a href="#">Varius magnis sollicitudin</a></h3>
-        </header>
-        <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-      </article>
+  
 
     </div>
   </section>
@@ -140,24 +95,14 @@
 <!-- Footer -->
   <div id="footer">
     <div class="container">
-      <hr />
       <div class="row">
         <div class="col-12">
-
           <!-- Contact -->
             <section class="contact">
               <header>
                 <h3>Nisl turpis nascetur interdum?</h3>
               </header>
               <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
-              <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
-              </ul>
             </section>
 
           <!-- Copyright -->
@@ -176,3 +121,16 @@
 </div>
 </template>
 
+<script>
+export default{
+  data : () => ({
+    img1 : require(`./images/pic01.jpg`),
+    img2 : require(`./images/pic01.jpg`),
+    img3 : require(`./images/pic01.jpg`),
+    img4 : require(`./images/pic01.jpg`),
+    img5 : require(`./images/pic01.jpg`)
+  })
+  
+}
+
+</script>
