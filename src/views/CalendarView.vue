@@ -76,10 +76,24 @@ export default defineComponent({
 </script>
 
 <template>
+  <div id="header">
+
+<!-- Inner -->
+  <div class="inner">
+    <header>
+      <h1><router-link to="/">All4SOCIETY</router-link></h1>
+      <hr />
+      <p>AllTogether</p>
+    </header>
+  </div>
+
+<!-- Nav -->
+
+</div>
   <div class='demo-app'>
     <div class='demo-app-sidebar'>
       <div class='demo-app-sidebar-section'>
-        <h2>뭐넣지</h2>
+        <h2 style="color: #ffffff; margin-top: 20px;">뭐넣지</h2>
         <ul>
           <li>11111111111</li>
           <li>22222222222222</li>
@@ -89,10 +103,10 @@ export default defineComponent({
       <div class='demo-app-sidebar-section'>
       </div>
       <div class='demo-app-sidebar-section'>
-        <h2>모든 일정 ({{ currentEvents.length }})</h2>
+        <h2 style="color: #ffffff;">모든 일정 ({{ currentEvents.length }})</h2>
         <ul>
           <li v-for='event in currentEvents' :key='event.id'>
-            <b>{{ event.startStr }}</b>
+            <b style="color: #ffffff;">{{ event.startStr }}</b>
             <i>{{ event.title }}</i>
           </li>
         </ul>
@@ -124,6 +138,7 @@ export default defineComponent({
 h2 {
   margin: 0;
   font-size: 16px;
+  color: #ffffff;
 }
 
 ul {
@@ -139,7 +154,6 @@ li {
 b { /* used for event dates/times */
   margin-right: 3px;
 }
-
 .demo-app {
   display: flex;
   min-height: 100%;
@@ -153,7 +167,7 @@ b { /* used for event dates/times */
   background: #483949;
   border-right: 1px solid #d3e2e8;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .demo-app-sidebar-section {
@@ -174,7 +188,6 @@ b { /* used for event dates/times */
   color: #000000;
 }
 
-
 .fc-col-header-cell-cushion {
   color: #000000;
 }
@@ -183,8 +196,8 @@ b { /* used for event dates/times */
   background-color: #483949;
   color: #ffffff;
 }
-.fc-daygrid-event-harness {
-  color: #483949;
+.demo-app-sidebar-section {
+  color: #ffffff;
 }
 
 </style>
