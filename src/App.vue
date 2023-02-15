@@ -9,7 +9,6 @@
     <router-link to="/tutorials">tutorials</router-link>
     <router-link to="/tutorial-details">tutorial-details</router-link>
     <router-link to="/add">add</router-link>
-
   </nav>
   <router-view/>
   <div id="page-wrapper">
