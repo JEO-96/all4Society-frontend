@@ -7,7 +7,7 @@
     <router-link to="/tutorial-details">tutorial-details</router-link> |
     <router-link to="/add">add</router-link>|
     <router-link to="/auth/login">login</router-link>|
-    <router-link to="/signup">signup</router-link>|
+    <router-link to="/auth/signup">signup</router-link>|
     <router-link to="/findId">findId</router-link>|
     <router-link to="/findPw">findPw</router-link>|
     <router-link to="/myInfo">myInfo</router-link>
