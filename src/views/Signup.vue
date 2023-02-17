@@ -37,24 +37,26 @@
           <h2><a href="#">회원가입</a></h2>
         </header>
         <section>
-          <form @submit.prevent="submitForm">
+          <v-form ref="form" @submit.prevent="submitForm">
             <div class="container2">
               <label for="id">아이디</label>
-              <input type="text" id="id" v-model="id"><br>
+              <input type="text" id="id" v-model="id" name="id" @keyup="handIDcheck">
+              <label>{{idcheck}}</label>
+              <br>
               <label for="password">비밀번호</label>
-              <input type="password" id="password" v-model="pw"><br>
+              <input type="password" id="password" name="pw" v-model="pw"><br>
               <label for="passwordConfirm">비밀번호확인</label>
               <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
               <label for="phone">휴대폰 번호</label>
-              <input type="text" id="phone" v-model="phone"><br>
+              <input type="text" id="phone" name="phone" v-model="phone"><br>
               <label for="생년월일">생년월일</label>
-              <input type="text" id="birth" v-model="birth"><br>
+              <input type="text" id="birth" name="birth" v-model="birth"><br>
               <label for="introduce">자기소개</label>
-              <textarea id="introduce" v-model="introduce"></textarea><br>
-              <input type="submit" value="회원가입"/>
+              <textarea id="introduce" v-model="introduce" name="introduce"></textarea><br>
+              <button @click="handleJoin">회원가입</button>
               <input type="button" value="뒤로가기"/>
             </div>
-          </form>
+          </v-form>
         </section>
       </article>
     </div>
@@ -64,20 +66,67 @@
 </template>
 
 <script>
+import axios from 'axios';
+import {reactive, toRefs} from '@vue/reactivity';
+import { useRouter } from 'vue-router';
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Signup',
-  data() {
-    return {
-      id: '',
-      pw: '',
-      pwConfirm: '',
-      phone: '',
-      birth: '',
-      introduce: ''
+  setup () {
+    const router = useRouter();
+
+    const state = reactive({
+      id:'',
+      pw:'',
+      phone:'',
+      birth:'',
+      introduce:'',
+    });
+
+    const handleJoin = async() => {
+      console.log('회원가입버튼이 클릭됨')
+      // 유효성 검사 실행
+      const url = `/api/member/join.json`;
+      // 이미지 없으면 무조건 {"Content-Type":"application/json"};
+      // 백엔드에서는 @RequestBody Member member로 받았다
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        id : state.id,
+        pw : state.pw,
+        phone : state.phone,
+        birth : state.birth,
+        introduce : state.introduce,
+      }
+
+      const { data } = await axios.post(url, body, {headers});
+      console.log(data);
+
+      if(data.status === 200){
+        alert('회원가입완료');
+        router.push({path:'/'});
+      }
     }
+
+    /*         const handIDcheck = async() => {
+                if(state.id.length > 0){ //아이디의 길이가 0보다 큰 경우
+                    const url = `/ROOT/api/member/idcheck.json?userid=${state.id}`;
+                    const headers = {"Content-Type":"application/json"};
+                    const { data } = await axios.get(url,{headers});
+                    console.log(data);
+                    if(data.status === 200) {
+                        if(data.result === true){
+                            state.idcheck = '사용불가';
+                        }
+                        else {
+                            state.idcheck = '사용가능';
+                        }
+                    }
+                }
+            } */
+
+    return {
+      state, ...toRefs(state), handleJoin
+    };
   }
-};
+}
 </script>
 
 <style scoped>
