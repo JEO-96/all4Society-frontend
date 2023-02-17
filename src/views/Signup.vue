@@ -8,21 +8,21 @@
   <html>
   <head>
     <title>회원가입</title>
-    <meta charset="utf-8"/>
+    <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
   </head>
-  <body class="no-sidebar is-preload">
+  <body className="no-sidebar is-preload">
 
 
   <!-- Header -->
   <div id="header">
 
     <!-- Inner -->
-    <div class="inner">
+    <div className="inner">
       <header>
         <h1><a href="index.html" id="logo">All4SOCIETY</a></h1>
       </header>
@@ -30,33 +30,33 @@
   </div>
 
   <!-- Main -->
-  <div class="wrapper style1">
-    <div class="container">
-      <article id="main" class="special">
+  <div className="wrapper style1">
+    <div className="container">
+      <article id="main" className="special">
         <header>
           <h2><a href="#">회원가입</a></h2>
         </header>
         <section>
-          <v-form ref="form" @submit.prevent="submitForm">
-            <div class="container2">
-              <label for="id">아이디</label>
-              <input type="text" id="id" v-model="id" name="id" @keyup="handIDcheck">
-              <label>{{idcheck}}</label>
-              <br>
-              <label for="password">비밀번호</label>
-              <input type="password" id="password" name="pw" v-model="pw"><br>
-              <label for="passwordConfirm">비밀번호확인</label>
-              <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
-              <label for="phone">휴대폰 번호</label>
-              <input type="text" id="phone" name="phone" v-model="phone"><br>
-              <label for="생년월일">생년월일</label>
-              <input type="text" id="birth" name="birth" v-model="birth"><br>
-              <label for="introduce">자기소개</label>
-              <textarea id="introduce" v-model="introduce" name="introduce"></textarea><br>
-              <button @click="handleJoin">회원가입</button>
-              <input type="button" value="뒤로가기"/>
-            </div>
-          </v-form>
+          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
+          <div className="container2">
+            <label htmlFor="id">아이디</label>
+            <input type="text" id="id" v-model="id" name="memberId" @keyup="handIDcheck">
+            <label>{{ id check }}</label>
+            <br>
+            <label htmlFor="password">비밀번호</label>
+            <input type="password" id="password" name="memberPw" v-model="pw"><br>
+            <label htmlFor="passwordConfirm">비밀번호확인</label>
+            <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
+            <label htmlFor="phone">휴대폰 번호</label>
+            <input type="text" id="phone" name="memberPhone" v-model="phone"><br>
+            <label htmlFor="생년월일">생년월일</label>
+            <input type="text" id="birth" name="memberBirth" v-model="birth"><br>
+            <label htmlFor="introduce">자기소개</label>
+            <textarea id="introduce" v-model="introduce" name="memberIntro"></textarea><br>
+            <button @click="handleJoin">회원가입</button>
+            <input type="button" value="뒤로가기"/>
+          </div>
+          <!-- </v-form> -->
         </section>
       </article>
     </div>
@@ -68,40 +68,52 @@
 <script>
 import axios from 'axios';
 import {reactive, toRefs} from '@vue/reactivity';
-import { useRouter } from 'vue-router';
+import {useRouter} from 'vue-router';
+
 export default {
-  setup () {
+  data: function () {
+    return {
+      id: '',
+      pw: '',
+      phone: '',
+      birth: '',
+      introduce: ''
+    }
+  },
+  setup() {
     const router = useRouter();
 
     const state = reactive({
-      id:'',
-      pw:'',
-      phone:'',
-      birth:'',
-      introduce:'',
+      id: '',
+      pw: '',
+      phone: '',
+      birth: '',
+      introduce: ''
     });
 
-    const handleJoin = async() => {
+    const handleJoin = async () => {
       console.log('회원가입버튼이 클릭됨')
       // 유효성 검사 실행
-      const url = `/api/member/join.json`;
+      const url = `api/member/join.json`;
       // 이미지 없으면 무조건 {"Content-Type":"application/json"};
       // 백엔드에서는 @RequestBody Member member로 받았다
-      const headers = {"Content-Type":"application/json"};
+      const headers = {"Content-Type": "application/json"};
       const body = {
-        id : state.id,
-        pw : state.pw,
-        phone : state.phone,
-        birth : state.birth,
-        introduce : state.introduce,
+        memberId: state.id,
+        memberPw: state.pw,
+        memberPhone: state.phone,
+        memberBirth: state.birth,
+        memberIntro: state.intro,
       }
+      console.log("11");
+      console.log("body : ", body);
 
-      const { data } = await axios.post(url, body, {headers});
+      const {data} = await axios.post(url, body, {headers});
       console.log(data);
 
-      if(data.status === 200){
+      if (data.status === 200) {
         alert('회원가입완료');
-        router.push({path:'/'});
+        router.push({path: '/'});
       }
     }
 
