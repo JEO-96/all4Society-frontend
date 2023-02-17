@@ -38,6 +38,3 @@ nav a.router-link-exact-active {
 }
 </style>
 
-<script setup>
-import MyIndo from "@/views/MyInfo.vue";
-</script>

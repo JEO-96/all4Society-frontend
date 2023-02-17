@@ -48,16 +48,6 @@ const routes = [
     component: HomeView
   },
   {
-    path: "/tutorials/:id",
-    name: "tutorial-details",
-    component: () => import("../components/Tutorial")
-  },
-  {
-    path: "/add",
-    name: "add",
-    component: () => import("../components/AddTutorial")
-  },
-  {
     path: "/findId",
     name: "findId",
     component: FindId

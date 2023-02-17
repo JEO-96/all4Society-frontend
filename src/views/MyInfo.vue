@@ -1,4 +1,5 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
+  <!--<template xmlns="http://www.w3.org/1999/html"> -->
   <!DOCTYPE HTML>
   <!--
     Massively by Pixelarity
