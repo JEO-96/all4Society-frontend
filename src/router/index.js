@@ -58,28 +58,28 @@ const routes = [
     component: () => import("../components/AddTutorial")
   },
   {
-    path: "/FindId",
+    path: "/findId",
     name: "findId",
     component: FindId
   },
   {
-    path: "/FindPw",
+    path: "/findPw",
     name: "findPw",
     component: FindPw
   },
   {
-    path: "/Login",
+    path: "/login",
     name: "login",
     component: Login
   },
   {
-    path: "/MyInfo",
+    path: "/myInfo",
     name: "myInfo",
     component: MyInfo
   },
   {
-    path: "/Signup",
-    name: "Signup",
+    path: "/signup",
+    name: "signup",
     component: Signup
   }
 ]
