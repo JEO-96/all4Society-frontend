@@ -58,7 +58,7 @@ const routes = [
     component: FindPw
   },
   {
-    path: "/login",
+    path: "/auth/login",
     name: "login",
     component: Login
   },
