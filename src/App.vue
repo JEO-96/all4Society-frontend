@@ -1,28 +1,32 @@
 <template>
   <div id="root">
-    <div v-if="isLogin">
+    <div v-if="isLogin">  <!-- 로그인 했을때 -->
       <nav id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
         <router-link to="/calendarview">Calendar</router-link> |
-        <router-link to="/auth/login">login</router-link>|
-        <router-link to="/auth/signup">signup</router-link>|
+        <router-link to="/login">login</router-link>|
+        <router-link to="/signup">signup</router-link>|
         <router-link to="/findId">findId</router-link>|
         <router-link to="/findPw">findPw</router-link>|
         <router-link to="/myInfo">myInfo</router-link>
       </nav>
     </div>
-    <div v-else>
+    <div v-else> <!-- 로그인 안했을때 -->
+      <nav id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/auth/login">동호회 게시판 생성</router-link> |
+      <router-link to="/login">동호회 게시판 생성</router-link> |
       <router-link to="/calendarview">Calendar</router-link> |
-      <router-link to="/auth/login">login</router-link>|
-      <router-link to="/auth/signup">signup</router-link>|
+      <router-link to="/login">login</router-link>|
+      <router-link to="/signup">signup</router-link>|
       <router-link to="/auth/login">findId</router-link>|
       <router-link to="/auth/login">findPw</router-link>|
       <router-link to="/auth/login">myInfo</router-link>
+      </nav>
     </div>
+
   </div>
+  <h1>{{isLogin}}</h1>>
   <router-view/>
 </template>
 
@@ -31,11 +35,22 @@ import Login from "@/views/Login.vue";
 
 export default {
   name: "App",
-
+  components: {
+    Login,
+  },
   data() {
     return {
       isLogin: false
     }
+  },
+  methods:{
+    login(){
+      Object.assign(this.isLogin, true);
+      console.log("자식이 함수 호출함", this.isLogin);
+    },
+    loginCheck() {
+      Object.assign(this.isLogin, true);
+    },
   }
 }
 

@@ -44,13 +44,18 @@
     </div>
   </body>
 </html>
+  <button @click="a">값 true로 바꾸기</button>
 </template>
 
 <script>
 import axios from "axios";
+import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Login",
+  props: {
+
+  },
   data() {
     return {
       id: '',
@@ -58,6 +63,10 @@ export default {
     }
   },
   methods: {
+    a() {
+      this.$parent.login();
+      console.log("버튼 클릭됨");
+    },
     async login() {
       try {
         const result = await axios.get('/auth/login', {
@@ -68,9 +77,11 @@ export default {
         });
         if (result.status === 200){
           // 로그인 성공할 경우
+          this.$emit('loginCheck', true);
         }
       } catch (err) {
         // 로그인 실패할 경우
+        this.$emit('loginCheck', false);
       }
     }
   }
