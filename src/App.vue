@@ -5,9 +5,6 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
         <router-link to="/calendarview">Calendar</router-link> |
-        <router-link to="/tutorials">tutorials</router-link> |
-        <router-link to="/tutorial-details">tutorial-details</router-link> |
-        <router-link to="/add">add</router-link>|
         <router-link to="/auth/login">login</router-link>|
         <router-link to="/auth/signup">signup</router-link>|
         <router-link to="/findId">findId</router-link>|
@@ -19,9 +16,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/auth/login">동호회 게시판 생성</router-link> |
       <router-link to="/calendarview">Calendar</router-link> |
-      <router-link to="/tutorials">tutorials</router-link> |
-      <router-link to="/tutorial-details">tutorial-details</router-link> |
-      <router-link to="/add">add</router-link>|
       <router-link to="/auth/login">login</router-link>|
       <router-link to="/auth/signup">signup</router-link>|
       <router-link to="/auth/login">findId</router-link>|
