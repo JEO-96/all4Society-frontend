@@ -5,6 +5,8 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './event-utils'
+import axios from 'axios';
+import { listenerCount } from 'process'
 
 export default defineComponent({
   components: {
@@ -32,17 +34,31 @@ export default defineComponent({
         weekends: true,
         select: this.handleDateSelect,
         eventClick: this.handleEventClick,
-        eventsSet: this.handleEvents
+        eventsSet: this.handleEvents,
         /* you can update a remote database when these fire:
         eventAdd:
         eventChange:
         eventRemove:
         */
       },
-      currentEvents: [],
+      currentEvents: [
+      ]
     }
-  },
+  }, 
   methods: {
+    getAllEventsFromServer() {
+      // Data 받아오기
+       axios.get(`api/calendarview`)
+        .then(response => {
+        // 스프링 부트 이벤트 데이터 받아오기
+        const data = response['data']
+        // 받아온 이벤트 데이터에 넣어주기
+         this.currentEvents = data
+         console.log("data : ", data)
+         console.log("currentEvents : ", this.currentEvents)
+         console.log("INITIAL_EVENTS : ", INITIAL_EVENTS)
+      }).catch(e => console.error(e)) 
+    },
     handleWeekendsToggle() {
       this.calendarOptions.weekends = !this.calendarOptions.weekends // update a property
     },
@@ -58,7 +74,6 @@ export default defineComponent({
           title,
           start: selectInfo.startStr,
           end: selectInfo.endStr,
-          allDay: selectInfo.allDay
         })
       }
     },
@@ -69,10 +84,13 @@ export default defineComponent({
     },
     handleEvents(events) {
       this.currentEvents = events
+      console.log(this.currentEvents)
     },
+  },
+  created() {
+    this.getAllEventsFromServer();
   }
 })
-
 </script>
 
 <template>
@@ -88,7 +106,6 @@ export default defineComponent({
   </div>
 
 <!-- Nav -->
-
 </div>
   <div class='demo-app'>
     <div class='demo-app-sidebar'>
@@ -96,7 +113,7 @@ export default defineComponent({
         <h2 style="color: #ffffff; margin-top: 20px;">뭐넣지</h2>
         <ul>
           <li>11111111111</li>
-          <li>22222222222222</li>
+          <li>22222222222</li>
           <li>33333333333</li>
         </ul>
       </div>
@@ -106,7 +123,7 @@ export default defineComponent({
         <h2 style="color: #ffffff;">모든 일정 ({{ currentEvents.length }})</h2>
         <ul>
           <li v-for='event in currentEvents' :key='event.id'>
-            <b style="color: #ffffff;">{{ event.startStr }}</b>
+            <b style="color: #ffffff;">{{ event.start }}</b>&nbsp;
             <i>{{ event.title }}</i>
           </li>
         </ul>
@@ -115,8 +132,7 @@ export default defineComponent({
     <div class='demo-app-main'>
       <FullCalendar
         class='demo-app-calendar'
-        :options='calendarOptions'
-      >
+        :options='calendarOptions'>
         <template v-slot:eventContent='arg'>
           <b>{{ arg.timeText }}</b>
           <i>{{ arg.event.title }}</i>
@@ -178,6 +194,9 @@ b { /* used for event dates/times */
   flex-grow: 1;
   padding: 3em;
 }
+.demo-app-calendar{
+  width: 100%;
+}
 
 .fc { /* the calendar root */
   max-width: 1100px;
@@ -199,5 +218,6 @@ b { /* used for event dates/times */
 .demo-app-sidebar-section {
   color: #ffffff;
 }
+
 
 </style>
