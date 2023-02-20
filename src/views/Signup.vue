@@ -37,6 +37,7 @@
           <h2><a href="#">회원가입</a></h2>
         </header>
         <section>
+          <form>
           <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
             <div class="container2">
               <label for="id">아이디</label>
@@ -59,6 +60,7 @@
               <button @click="handleJoin">회원가입</button>
               <input type="button" value="뒤로가기"/>
             </div>
+          </form>
           <!-- </v-form> -->
         </section>
       </article>
