@@ -41,7 +41,6 @@
             <div class="container2">
               <label for="id">아이디</label>
               <input type="text" id="id" v-model="id" name="memberId" @keyup="handIDcheck">
-              <label>{{idcheck}}</label>
               <br>
               <label for="password">비밀번호</label>
               <input type="password" id="password" name="memberPw" v-model="pw"><br>
@@ -49,8 +48,12 @@
               <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
               <label for="phone">휴대폰 번호</label>
               <input type="text" id="phone" name="memberPhone" v-model="phone"><br>
-              <label for="생년월일">생년월일</label>
+              <label for="birth">생년월일</label>
               <input type="text" id="birth" name="memberBirth" v-model="birth"><br>
+              <label for="hint">비밀번호 찾기 질문</label>
+              <input type="text" id="hint" name="memberHint" v-model="hint"><br>
+              <label for="answer">비밀번호 찾기 답변</label>
+              <input type="text" id="answer" name="memberAnswer" v-model="answer"><br>
               <label for="introduce">자기소개</label>
               <textarea id="introduce" v-model="introduce" name="memberIntro"></textarea><br>
               <button @click="handleJoin">회원가입</button>
@@ -76,7 +79,9 @@ export default {
       pw: '',
       phone: '',
       birth: '',
-      introduce: ''
+      introduce: '',
+      hint: '',
+      answer: '',
     }
   },
   setup () {
@@ -87,7 +92,9 @@ export default {
             pw:'',
             phone:'',
             birth:'',
-            introduce:''
+            introduce:'',
+            hint: '',
+            answer: '',
         });
 
         const handleJoin = async() => {
@@ -102,13 +109,15 @@ export default {
                 memberPw : state.pw,
                 memberPhone : state.phone,
                 memberBirth : state.birth,
-                memberIntro : state.intro,
+                memberIntro : state.introduce,
+                memberHint : state.hint,
+                memberAnswer : state.answer,
             }
             console.log("11");
             console.log("body : " ,body);
 
             const { data } = await axios.post(url, body, {headers});
-            console.log(data);
+            console.log({data});
 
             if(data.status === 200){
                 alert('회원가입완료');

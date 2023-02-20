@@ -1,5 +1,4 @@
 <template>
-
 <html>
   <head>
     <title>로그인</title>
@@ -28,61 +27,57 @@
             <h2>로그인</h2>
           </header>
           <section>
-            <form @submit.prevent="login()">
                 <div id="container2">
                   <label for="id">아이디</label>
-                  <input type="text" id="id" v-model="id"><br>
+                  <input type="text" v-model="userid"/><br>
                   <label for="pw">패스워드</label>
-                  <input type="password" id="pw" v-model="pw"><br>
-                  <input type="submit" value="로그인"/>
-                  <input type="button" value="뒤로가기"/>
+                  <input type="password" v-model="userpw"/><br>
+                  <button @click="handleLogin">로그인</button>
                 </div>
-            </form>
           </section>
         </article>
       </div>
     </div>
   </body>
 </html>
-  <button @click="a">값 true로 바꾸기</button>
 </template>
 
 <script>
+import {reactive, toRefs} from "@vue/reactivity";
 import axios from "axios";
-import {assertBoolean} from "@babel/core/lib/config/validation/option-assertions";
+import {useRouter} from "vue-router";
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Login",
-  props: {
+  setup(){
+    const router = useRouter();
 
-  },
-  data() {
-    return {
-      id: '',
-      pw: '',
-    }
-  },
-  methods: {
-    a() {
-      this.$parent.login();
-      console.log("버튼 클릭됨");
-    },
-    async login() {
-      try {
-        const result = await axios.get('/auth/login', {
-          auth: {
-            id: this.id,
-            pw: this.pw
-          }
-        });
-        if (result.status === 200){
-          // 로그인 성공할 경우
-          this.$emit('loginCheck', true);
-        }
-      } catch (err) {
-        // 로그인 실패할 경우
-        this.$emit('loginCheck', false);
+    const state = reactive({
+      userid:'',
+      userpw:'',
+    });
+
+    const handleLogin = async() => {
+      console.log('로그인 버튼이 클릭됨');
+
+      const url = `/ROOT/api/member/login.json`;
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        userid : state.userid,
+        userpw : state.userpw,
+        role : 'CUSTOMER'
       }
+      const {data} = await axios.post(url, body, {headers});
+      console.log(data);
+
+      if(data.status == 200){
+        sessionStorage.setItem("token", data.result);
+        router.push({path:'/'});
+      }
+    };
+
+    return {
+      state,
+      ...toRefs(state),
+      handleLogin
     }
   }
 }

@@ -1,32 +1,14 @@
 <template>
-  <div id="root">
-    <div v-if="isLogin">  <!-- 로그인 했을때 -->
-      <nav id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
-        <router-link to="/calendarview">Calendar</router-link> |
-        <router-link to="/login">login</router-link>|
-        <router-link to="/signup">signup</router-link>|
-        <router-link to="/findId">findId</router-link>|
-        <router-link to="/findPw">findPw</router-link>|
-        <router-link to="/myInfo">myInfo</router-link>
-      </nav>
-    </div>
-    <div v-else> <!-- 로그인 안했을때 -->
-      <nav id="nav">
+    <nav id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/login">동호회 게시판 생성</router-link> |
+      <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
       <router-link to="/calendarview">Calendar</router-link> |
       <router-link to="/login">login</router-link>|
       <router-link to="/signup">signup</router-link>|
-      <router-link to="/auth/login">findId</router-link>|
-      <router-link to="/auth/login">findPw</router-link>|
-      <router-link to="/auth/login">myInfo</router-link>
-      </nav>
-    </div>
-
-  </div>
-  <h1>{{isLogin}}</h1>>
+      <router-link to="/findId">findId</router-link>|
+      <router-link to="/findPw">findPw</router-link>|
+      <router-link to="/myInfo">myInfo</router-link>
+    </nav>
   <router-view/>
 </template>
 
