@@ -2518,6 +2518,7 @@ input, select, textarea {
 		overflow: hidden;
 		padding: 2em 0 2em 0;
 		margin-bottom: 0;
+		background-color: #93829961;
 	}
 
 		.carousel .forward, .carousel .backward {

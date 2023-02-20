@@ -6,9 +6,14 @@ import FindId from "@/views/FindId.vue";
 import FindPw from "@/views/FindPw.vue";
 import MyInfo from "@/views/MyInfo.vue";
 import Signup from "@/views/Signup.vue";
+
+//board
 import Register from "@/views/Register.vue";
 import RegisterSociety from "@/views/RegisterSociety.vue";
-import SocietyBoard from "@/views/SocietyBoard.vue";
+import SocietyBoardSport from "@/views/SocietyBoardSport.vue";
+import SocietyBoardMusic from "@/views/SocietyBoardMusic.vue";
+import SocietyBoardTrip from "@/views/SocietyBoardTrip.vue";
+import SocietyBoardStudy from "@/views/SocietyBoardStudy.vue";
 
 
 import HomeView from '../views/HomeView.vue';
@@ -28,9 +33,24 @@ const routes = [
     component: RegisterSociety
   },
   {
-    path: '/societyBoard',
-    name: 'societyBoard',
-    component: SocietyBoard
+    path: '/SocietyBoardSport',
+    name: 'SocietyBoardSport',
+    component: SocietyBoardSport
+  },
+  {
+    path: '/SocietyBoardMusic',
+    name: 'SocietyBoardMusic',
+    component: SocietyBoardMusic
+  },
+  {
+    path: '/SocietyBoardTrip',
+    name: 'SocietyBoardTrip',
+    component: SocietyBoardTrip
+  },
+  {
+    path: '/SocietyBoardStudy',
+    name: 'SocietyBoardStudy',
+    component: SocietyBoardStudy
   },
   {
     path: '/student',

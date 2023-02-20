@@ -21,47 +21,44 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<div id="header">
+			<div id="header">
 
-					<!-- Inner -->
-						<div class="inner">
-							<header>
-								<h1><a href="index.html" id="logo">All4SOCIETY</a></h1>
-							</header>
-						</div>
+<!-- Inner -->
+	<div class="inner">
+		<header>
+			<h1><a href="/" id="logo">All4SOCIETY</a></h1>
+		</header>
+	</div>
 
-					<!-- Nav -->
-						
 
-				</div>
+</div>
 
-			<!-- Main -->
-				<div class="wrapper style1">
+<!-- Main -->
+<div class="wrapper style1">
 
-					<div class="container">
-						<article id="main" class="special">
+<div class="container">
+	<article id="main" class="special">
+			<h2><a href="#">동호회 등록 신청</a></h2>
 
-								<h2><a href="#">가입 신청</a></h2>
-							
-							<section>
-								<form>
-									<div class="container2">
-									<input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
-									<input type="text" id="birth" name="birth" value="" placeholder="생년월일" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="전화번호" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="부서" required><br>
-									<input type="text" id="uname" name="uname" value="" placeholder="직급" required><br>
-									<textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
-										<input type="submit" value="신청"/>&nbsp;&nbsp;&nbsp;
-										<input type="button" value="뒤로가기">
-								</div>
-								</form>
-							</section>
-							
-						</article>
-					</div>
+		<section>
+          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
+            <div class="container2">
+				<input type="text" id="memberName" v-model="memberName" name="memberName" placeholder="성명" required><br><br>
+				<input type="text" id="memberDepartment" v-model="memberDepartment" name="memberDepartment" placeholder="부서" required><br><br>
+				<input type="text" id="memberRank" v-model="memberRank" name="memberRank" placeholder="직급" required><br><br>
+				<input type="text" id="memberPhone" v-model="memberPhone" name="memberPhone" placeholder="전화번호" required><br><br>
+				<input type="text" id="memberReco" v-model="memberReco" name="memberReco" placeholder="추천인" required><br><br>
+				<textarea id="memberApp" v-model="memberApp" name="memberApp" placeholder="경험 (있다면 어느정도 인지)"></textarea><br><br>
+              <textarea id="memberIntro" v-model="memberIntro" name="memberIntro" placeholder="간단한 자기 소개 / 포부"></textarea><br><br>
+              <button @click="handleJoin">신청하기</button>&nbsp;&nbsp;
+              <button @click="goBack">뒤로가기</button>
+            </div>
+          <!-- </v-form> -->
+        </section>
+	</article>
+</div>
 
-				</div>
+</div>
 
 			<!-- Footer -->
   <div id="footer">
@@ -96,11 +93,63 @@
 </html>
   </template>
   
-  <script>
-  export default {
-    name: "MyIndo"
-  }
-  </script>
+<script>
+import axios from 'axios';
+import {reactive, toRefs} from '@vue/reactivity';
+import { useRouter } from 'vue-router';
+export default {
+  data: function() {
+    return {
+	boardName: '',
+	boardManagerName: '',
+	boardPeople: '',
+	boardIntro: ''
+    }
+  },
+  setup () {
+        const router = useRouter();
+
+        const state = reactive({
+            boardName:'',
+            boardManagerName:'',
+            boardPeople:'',
+            boardIntro:''
+        });
+
+        const handleJoin = async() => {
+            console.log('동호회 등록 클릭')
+            const url = `api/board/register.json`;
+            const headers = {"Content-Type":"application/json"};
+            const body = {
+                boardName : state.boardName,
+                boardManagerName : state.boardManagerName,
+                boardPeople : state.boardPeople,
+                boardIntro : state.boardIntro
+            }
+            console.log("boardGO");
+            console.log("body : " ,body);
+
+            const  data  = await axios.post(url, body, {headers});
+            console.log(data);
+
+            if(data.status === 200){
+                alert('동호회 신청완료');
+                await router.push({path: '/'});
+            }
+        }
+	
+        return {
+            state, ...toRefs(state), handleJoin
+        };
+    },
+	methods:{
+        goBack(){
+            this.$router.go(-1); [2]
+        }
+    }
+}
+
+</script>
   
   <style scoped>
   

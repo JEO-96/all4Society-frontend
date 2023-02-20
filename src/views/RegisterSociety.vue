@@ -44,7 +44,7 @@
           <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
             <div class="container2">
 				<input type="text" id="boardName" v-model="boardName" name="boardName" placeholder="동호회명" required><br><br>
-				<input type="text" id="boardMangerName" v-model="boardMangerName" name="boardMangerName" placeholder="동호회 매니저 이름" required><br><br>
+				<input type="text" id="boardManagerName" v-model="boardManagerName" name="boardManagerName" placeholder="동호회 매니저 이름" required><br><br>
 				<input type="text" id="boardPeople" v-model="boardPeople" name="boardPeople" placeholder="동호회 인원" required><br><br>
               <textarea id="boardIntro" v-model="boardIntro" name="boardIntro" placeholder="동호회 소개"></textarea><br><br>
               <button @click="handleJoin">동호회개설</button>&nbsp;&nbsp;
@@ -98,7 +98,7 @@ export default {
   data: function() {
     return {
 	boardName: '',
-	boardMangerName: '',
+	boardManagerName: '',
 	boardPeople: '',
 	boardIntro: ''
     }
@@ -108,7 +108,7 @@ export default {
 
         const state = reactive({
             boardName:'',
-            boardMangerName:'',
+            boardManagerName:'',
             boardPeople:'',
             boardIntro:''
         });
@@ -119,19 +119,19 @@ export default {
             const headers = {"Content-Type":"application/json"};
             const body = {
                 boardName : state.boardName,
-                boardMangerName : state.boardMangerName,
+                boardManagerName : state.boardManagerName,
                 boardPeople : state.boardPeople,
                 boardIntro : state.boardIntro
             }
             console.log("boardGO");
             console.log("body : " ,body);
 
-            const { data } = await axios.post(url, body, {headers});
+            const  data  = await axios.post(url, body, {headers});
             console.log(data);
 
             if(data.status === 200){
                 alert('동호회 등록완료');
-                router.push({path:'/'});
+                await router.push({path: '/'});
             }
         }
 	
