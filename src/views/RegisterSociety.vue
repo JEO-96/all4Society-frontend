@@ -39,25 +39,19 @@
 <div class="container">
 	<article id="main" class="special">
 			<h2><a href="#">동호회 게시판 생성 신청</a></h2>
-		
+
 		<section>
-			<form>
-				<div class="container2">
-				<input type="text" id="uname" name="uname" value="" placeholder="이름" required><br>
-				<input type="text" id="birth" name="birth" value="" placeholder="생년월일" required><br>
-				<input type="text" id="uname" name="uname" value="" placeholder="전화번호" required><br>
-				<input type="text" id="uname" name="uname" value="" placeholder="부서" required><br>
-				<input type="text" id="uname" name="uname" value="" placeholder="직급" required><br>
-				<input type="text" id="uname" name="uname" value="" placeholder="동아리명" required><br>
-				<input type="text" id="uname" name="uname" value="" placeholder="현재 동아리 인원" required><br>
-				
-				<textarea id="introduce" name="introduce" placeholder="소개" required></textarea><br>
-					<input type="submit" value="신청"/>&nbsp;&nbsp;&nbsp;
-					<input type="button" value="뒤로가기">
-			</div>
-			</form>
-		</section>
-		
+          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
+            <div class="container2">
+				<input type="text" id="boardName" v-model="boardName" name="boardName" placeholder="동호회명" required><br><br>
+				<input type="text" id="boardMangerName" v-model="boardMangerName" name="boardMangerName" placeholder="동호회 매니저 이름" required><br><br>
+				<input type="text" id="boardPeople" v-model="boardPeople" name="boardPeople" placeholder="동호회 인원" required><br><br>
+              <textarea id="boardIntro" v-model="boardIntro" name="boardIntro" placeholder="동호회 소개"></textarea><br><br>
+              <button @click="handleJoin">동호회개설</button>&nbsp;&nbsp;
+              <button @click="goBack">뒤로가기</button>
+            </div>
+          <!-- </v-form> -->
+        </section>
 	</article>
 </div>
 
@@ -96,11 +90,63 @@
 </html>
   </template>
   
-  <script>
-  export default {
-    name: "MyIndo"
-  }
-  </script>
+<script>
+import axios from 'axios';
+import {reactive, toRefs} from '@vue/reactivity';
+import { useRouter } from 'vue-router';
+export default {
+  data: function() {
+    return {
+	boardName: '',
+	boardMangerName: '',
+	boardPeople: '',
+	boardIntro: ''
+    }
+  },
+  setup () {
+        const router = useRouter();
+
+        const state = reactive({
+            boardName:'',
+            boardMangerName:'',
+            boardPeople:'',
+            boardIntro:''
+        });
+
+        const handleJoin = async() => {
+            console.log('동호회 등록 클릭')
+            const url = `api/board/register.json`;
+            const headers = {"Content-Type":"application/json"};
+            const body = {
+                boardName : state.boardName,
+                boardMangerName : state.boardMangerName,
+                boardPeople : state.boardPeople,
+                boardIntro : state.boardIntro
+            }
+            console.log("boardGO");
+            console.log("body : " ,body);
+
+            const { data } = await axios.post(url, body, {headers});
+            console.log(data);
+
+            if(data.status === 200){
+                alert('동호회 등록완료');
+                router.push({path:'/'});
+            }
+        }
+	
+        return {
+            state, ...toRefs(state), handleJoin
+        };
+    },
+	methods:{
+        goBack(){
+            this.$router.go(-1); [2]
+        }
+    }
+}
+
+</script>
   
   <style scoped>
   
