@@ -17,7 +17,6 @@
 
   <!-- Header -->
   <div id="header">
-
     <!-- Inner -->
     <div class="inner">
       <header>
@@ -28,39 +27,48 @@
 
   <!-- Main -->
   <div class="wrapper style1">
-
     <div class="container">
       <article id="main" class="special">
         <header>
           <h2><a href="#">아이디 찾기</a></h2>
         </header>
           <section>
-            <form>
               <div class="container2">
-                <label for="name">이름</label>
-                <input type="text" id="name" placeholder="이름" required><br>
-                <label for="name">휴대폰번호</label>
-                <input type="text" id="birth" name="birth" placeholder="휴대폰번호" required><br>
-                <input type="button" id="uname" name="uname" value="인증번호받기" placeholder="전화번호" required><br>
+                <label>이름</label>
+                <input type="text" name="name" placeholder="이름" v-model="name"><br>
+                <label>휴대폰번호</label>
+                <input type="text" name="phone" placeholder="휴대폰번호" v-model="phone"><br>
                 <br>
-                <input type="text" id="uname" name="uname" value="" placeholder="인증번호" required><br>
-                <input type="submit" value="신청"/>
-                <input type="reset" value="다시하기"/>
+                <button @click="findId">확인</button>
               </div>
-            </form>
           </section>
-
       </article>
     </div>
-
   </div>
   </body>
   </html>
 </template>
 
 <script>
+import {reactive, toRefs} from "@vue/reactivity";
+import axios from "axios";
+import {useRouter} from "vue-router";
+
 export default {
-  name: "FindId"
+  name: "FindId",
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    findId() {
+      axios.get(`/api/member/findId`)
+          .then(response => {
+          const data = response['data']
+          console.log(data)}).catch(e => console.error(e));
+    }
+  }
 }
 </script>
 

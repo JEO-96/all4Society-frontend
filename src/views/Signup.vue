@@ -121,7 +121,7 @@ export default {
 
             if(data.status === 200){
                 alert('회원가입완료');
-                await router.push({path: '/'});
+                await router.push({path: '/login'});
             }
         }
 

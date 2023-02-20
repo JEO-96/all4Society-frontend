@@ -29,9 +29,9 @@
           <section>
                 <div id="container2">
                   <label for="id">아이디</label>
-                  <input type="text" name=userid v-model="userid"/><br>
+                  <input type="text" name=memberId v-model="memberId"/><br>
                   <label for="pw">패스워드</label>
-                  <input type="password" name="pw" v-model="pw"/><br>
+                  <input type="password" name="password" v-model="password"/><br>
                   <button @click="handleLogin">로그인</button>
                 </div>
           </section>
@@ -51,26 +51,27 @@ export default {
     const router = useRouter();
 
     const state = reactive({
-      userid:'',
-      pw:'',
+      memberId:'',
+      password:'',
     });
 
     const handleLogin = async() => {
       console.log('로그인 버튼이 클릭됨');
 
-      const url = `/login`;
+      const url = `/api/member/login`;
       const headers = {"Content-Type":"application/json"};
       const body = {
-        userid : state.userid,
-        pw : state.pw,
+        memberId : state.memberId,
+        password : state.password,
         role : 'ROLE_USER'
       }
       const data = await axios.post(url, body, {headers});
       console.log({data});
 
-      if(data.status == 200){
-        sessionStorage.setItem("token", data.result);
-        router.push({path:'/'});
+      if(data.status === 200){
+        await router.push({path:'/'});
+      } else {
+        alert("로그인 실패");
       }
     };
 
