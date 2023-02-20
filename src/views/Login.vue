@@ -63,10 +63,10 @@ export default {
       const body = {
         userid : state.userid,
         pw : state.pw,
-        role : 'CUSTOMER'
+        role : 'ROLE_USER'
       }
-      const {data} = await axios.post(url, body, {headers});
-      console.log(data);
+      const data = await axios.post(url, body, {headers});
+      console.log({data});
 
       if(data.status == 200){
         sessionStorage.setItem("token", data.result);

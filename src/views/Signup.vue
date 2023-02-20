@@ -116,12 +116,12 @@ export default {
             console.log("11");
             console.log("body : " ,body);
 
-            const { data } = await axios.post(url, body, {headers});
+            const data = await axios.post(url, body, {headers});
             console.log({data});
 
             if(data.status === 200){
                 alert('회원가입완료');
-                router.push({path:'/'});
+                await router.push({path: '/'});
             }
         }
 
