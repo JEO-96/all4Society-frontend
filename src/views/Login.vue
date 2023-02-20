@@ -29,9 +29,9 @@
           <section>
                 <div id="container2">
                   <label for="id">아이디</label>
-                  <input type="text" v-model="userid"/><br>
+                  <input type="text" name=userid v-model="userid"/><br>
                   <label for="pw">패스워드</label>
-                  <input type="password" v-model="userpw"/><br>
+                  <input type="password" name="pw" v-model="pw"/><br>
                   <button @click="handleLogin">로그인</button>
                 </div>
           </section>
@@ -52,17 +52,17 @@ export default {
 
     const state = reactive({
       userid:'',
-      userpw:'',
+      pw:'',
     });
 
     const handleLogin = async() => {
       console.log('로그인 버튼이 클릭됨');
 
-      const url = `/ROOT/api/member/login.json`;
+      const url = `/login`;
       const headers = {"Content-Type":"application/json"};
       const body = {
         userid : state.userid,
-        userpw : state.userpw,
+        pw : state.pw,
         role : 'CUSTOMER'
       }
       const {data} = await axios.post(url, body, {headers});
