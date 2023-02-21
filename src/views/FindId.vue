@@ -34,12 +34,10 @@
         </header>
           <section>
               <div class="container2">
-                <label>이름</label>
-                <input type="text" name="name" placeholder="이름" v-model="name"><br>
                 <label>휴대폰번호</label>
                 <input type="text" name="phone" placeholder="휴대폰번호" v-model="phone"><br>
                 <br>
-                <button @click="findId">확인</button>
+                <button @click="handleFindId">확인</button>
               </div>
           </section>
       </article>
@@ -56,18 +54,39 @@ import {useRouter} from "vue-router";
 
 export default {
   name: "FindId",
-  data() {
+  data: function () {
     return {
-
+      phone: '',
     }
   },
-  methods: {
-    findId() {
-      axios.get(`/api/member/findId`)
-          .then(response => {
-          const data = response['data']
-          console.log(data)}).catch(e => console.error(e));
+  setup () {
+    const router = useRouter();
+
+    const state = reactive({
+      phone:'',
+    });
+
+    const handleFindId = async() => {
+      console.log('아이디 찾기버튼 클릭');
+      const url = `api/member/findId`;
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        memberPhone: state.phone,
+      }
+      console.log("body: " , body);
+
+      const data = await axios.post(url, body, {headers})
+          .then(function (response) {
+            console.log("response", response.data.memberId);
+            alert("아이디는 " + response.data.memberId + "입니다");
+          })
+          .catch(function (error){
+            console.log('error : ', error);
+          });
     }
+    return {
+      state, ...toRefs(state), handleFindId
+    };
   }
 }
 </script>

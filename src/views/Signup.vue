@@ -46,6 +46,8 @@
               <input type="password" id="password" name="memberPw" v-model="pw"><br>
               <label for="passwordConfirm">비밀번호확인</label>
               <input type="password" id="passwordConfirm" v-model="pwConfirm"><br>
+              <label for="name">성명</label>
+              <input type="text" id="name" name="memberName" v-model="name"><br>
               <label for="phone">휴대폰 번호</label>
               <input type="text" id="phone" name="memberPhone" v-model="phone"><br>
               <label for="birth">생년월일</label>
@@ -91,6 +93,7 @@ export default {
             id:'',
             pw:'',
             phone:'',
+          name:'',
             birth:'',
             introduce:'',
             hint: '',
@@ -108,6 +111,7 @@ export default {
                 memberId : state.id,
                 memberPw : state.pw,
                 memberPhone : state.phone,
+              memberName: state.name,
                 memberBirth : state.birth,
                 memberIntro : state.introduce,
                 memberHint : state.hint,
