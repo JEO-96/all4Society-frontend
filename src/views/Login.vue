@@ -27,7 +27,6 @@
             <h2>로그인</h2>
           </header>
           <section>
-            <form>
                 <div id="container2">
                   <label for="id">아이디</label>
                   <input type="text" name=memberId v-model="memberId"/><br>
@@ -35,7 +34,6 @@
                   <input type="password" name="password" v-model="password"/><br>
                   <button @click="handleLogin">로그인</button>
                 </div>
-            </form>
           </section>
         </article>
       </div>
