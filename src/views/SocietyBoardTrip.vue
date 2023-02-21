@@ -1,6 +1,35 @@
 <style>  @import '../assets/css/main.css';
 
 </style>
+<script>
+import axios from 'axios';
+export default
+{
+  data: function() {
+    return {
+      StudyList: [],
+	img1 : require(`@/images/pic01.jpg`),
+    img2 : require(`@/images/pic01.jpg`),
+    img3 : require(`@/images/pic01.jpg`),
+    img4 : require(`@/images/pic01.jpg`),
+    img5 : require(`@/images/pic01.jpg`)
+    }
+  }, 
+  methods: {
+    board() {
+      axios.get(`api/board/trip.json`).then((response)=> {
+        this.StudyList = response.data
+        console.log(this.StudyList)
+      }).catch(e=>console.error(e))
+    },
+  },
+  mounted() {
+    this.board()
+  }
+
+}
+
+</script>
 <template>
     
     <!DOCTYPE HTML>
@@ -39,38 +68,37 @@
 <div class="wrapper style1">
 
 <div class="container">
-		
+	
 <!-- Main -->
-<div class="wrapper style1">
+ <div class="wrapper style1">
 
-<div class="container">
-	<div class="row gtr-200">
+
+	<div class="row gtr-200"  v-for="StudyList in StudyList" :key="StudyList">
+		
 		<div class="col-8 col-12-mobile" id="content">
 			<article id="main">
 				<header>
-					<h2><a href="#">골프 동호회</a></h2>
+					<h2><a href="#">{{ StudyList.boardName }}</a></h2>
 					<p>
-						골프 뉴비부터 고인물까지 모두 환영합니다.
+						{{ StudyList.boardSubIntro }}
 					</p>
 					
 				</header>
-				<a href="register.html" class="image featured"><img :src="img2" alt=""></a>
+				<a class="image featured"><img :src="img2" alt="" style="float: center; width:100%; height:300px"></a>
 				<div center>
 						<h3>가입조건</h3>
 					<strong>
-						가입조건 올포랜드 사원 누구나 !
+						{{ StudyList.boardCondition }}
 					</strong><br><br>
 					<h3>장소 / 시간</h3>
 					<strong>
-						장소 : 매주 변경 (대부분 회사 근처) / 시간 : 매주 토 13:30
+						장소 : {{ StudyList.boardPlace }} / 시간 : {{ StudyList.boardTime }}
 					</strong><br><br>
 					<h3>회비</h3>
 					<strong>
-						사원 : 30,000<br>
-						대리 : 40,000<br>
-						과장 : 50,000<br>
-						부장이상 : 80,000<br>
+						{{ StudyList.boardMoney }}
 					</strong>
+					<hr>
 				</div>
 			</article>
 		</div>
@@ -79,64 +107,28 @@
 			
 			<section>
 				<header>
-					<h3><a href="#">동호회 간부</a></h3>
+					<h3><a href="#">동호회 회장 : {{ StudyList.boardManagerName }}</a></h3>
 				</header>
-				<div class="row gtr-50">
-					<div class="col-4">
-						<a href="#" class="image fit"><img :src="img2" alt=""></a>
-					</div>
-					<div class="col-8">
-						<h4>동호회 회장</h4>
-						<p>
-							김골프
-						</p>
-					</div>
-					<div class="col-4">
-						<a href="#" class="image fit"><img :src="img2" alt=""></a>
-					</div>
-					<div class="col-8">
-						<h4>동호회 부회장</h4>
-						<p>
-							김골프2
-						</p>
-					</div>
-					<div class="col-4">
-						<a href="#" class="image fit"><img :src="img2" alt=""></a>
-					</div>
-					<div class="col-8">
-						<h4>오락부장</h4>
-						<p>
-							김골프3
-						</p>
-					</div>
-					<div class="col-4">
-						<a href="#" class="image fit"><img :src="img2" alt=""></a>
-					</div>
-					<div class="col-8">
-						<h4>총무</h4>
-						<p>
-							김골프4
-						</p>
-					</div>
-					
-					</div>
 			</section>
 			<hr>
 			<section>
 				<header>
-					<h3><a href="#">골프 동호회 함께헤요</a></h3>
+					<p>소개</p>
+					<h3><a href="#">{{ StudyList.boardName }}과(와) 함께헤요</a></h3>
+					<br>{{ StudyList.boardIntro }}
 				</header>
-				<p>
-					장비가 없어도 누구나 환영입니다. 장비 대여 / 뉴비분들 티칭해드립니다. 고인물분들도 매우 환영입니다
-				</p>
+
+
+
 				<footer>
-					<a href="register.html" class="button">신청하기</a>
+					
+					<hr><h3>문의처 <br><br> {{ StudyList.boardManagerPhone }}</h3>
 				</footer>
 			</section>
-			<hr />
+
 		</div>
 	</div>
-	<hr />
+
 	
 </div>
 
@@ -171,26 +163,7 @@
     </div>
   </div>
 
-		</div>
-
 
 	</body>
 </html>
   </template>
-  
-<script>
-export default{
-  data : () => ({
-    img1 : require(`@/images/pic01.jpg`),
-    img2 : require(`@/images/pic01.jpg`),
-    img3 : require(`@/images/pic01.jpg`),
-    img4 : require(`@/images/pic01.jpg`),
-    img5 : require(`@/images/pic01.jpg`)
-  })
-  
-}
-</script>
-  
-  <style scoped>
-  
-  </style>
