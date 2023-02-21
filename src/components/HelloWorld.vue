@@ -34,7 +34,7 @@
   <section class="carousel" background:black>
     <div class="reel">
       
-      <router-link to="/SocietyBoardSport">
+      <router-link to="/societyBoardSport">
         <article>
         <br>
         <header>
@@ -69,8 +69,8 @@
         <article>
         <br>
         <header>
-          <p>음악</p>
-          <h3>좋아하는 음악 공유부터 음악 활동까지 함께해요.</h3>
+          <p>기타</p>
+          <h3>다양한 카테고리의 동호회를 만나보세요!</h3>
         </header>
         <p></p>
       </article>
