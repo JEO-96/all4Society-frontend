@@ -38,11 +38,11 @@
 
 <div class="container">
 	<article id="main" class="special">
-			<h2><a href="#">동호회 게시판 생성 신청</a></h2>
+			<h2>동호회 게시판 생성 신청</h2>
 
 		<section>
-          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
-            <div class="container2">
+      <form>
+        <div class="container2">
 				<input type="text" id="boardName" v-model="boardName" name="boardName" placeholder="동호회명" required><br><br>
 				<input type="text" id="boardManagerName" v-model="boardManagerName" name="boardManagerName" placeholder="동호회 매니저 이름" required><br><br>
 				<input type="text" id="boardPeople" v-model="boardPeople" name="boardPeople" placeholder="동호회 인원" required><br><br>
@@ -50,6 +50,8 @@
               <button @click="handleJoin">동호회개설</button>&nbsp;&nbsp;
               <button @click="goBack">뒤로가기</button>
             </div>
+      </form>
+          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
           <!-- </v-form> -->
         </section>
 	</article>
@@ -149,5 +151,11 @@ export default {
 </script>
   
   <style scoped>
+  button {
+  background-color: #483949;
+  width: 200px;
+  height: 70px;
+  font-size: 20px;
+}
   
   </style>
