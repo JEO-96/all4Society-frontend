@@ -75,7 +75,7 @@ export default {
       }
       console.log("body: " , body);
 
-      const data = await axios.post(url, body, {headers})
+      await axios.post(url, body, {headers})
           .then(function (response) {
             console.log("response", response.data.memberId);
             alert("아이디는 " + response.data.memberId + "입니다");

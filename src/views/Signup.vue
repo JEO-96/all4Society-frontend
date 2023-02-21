@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <!DOCTYPE HTML>
   <!--
     Massively by Pixelarity
@@ -15,8 +15,6 @@
       <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
   </head>
-  <body class="no-sidebar is-preload">
-
 
   <!-- Header -->
   <div id="header">
@@ -39,6 +37,7 @@
         <section>
           <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
             <div class="container2">
+              <form>
               <label for="id">아이디</label>
               <input type="text" id="id" v-model="id" name="memberId" @keyup="handIDcheck">
               <br>
@@ -58,15 +57,14 @@
               <input type="text" id="answer" name="memberAnswer" v-model="answer"><br>
               <label for="introduce">자기소개</label>
               <textarea id="introduce" v-model="introduce" name="memberIntro"></textarea><br>
+              </form>
               <button @click="handleJoin">회원가입</button>
-              <input type="button" value="뒤로가기"/>
             </div>
           <!-- </v-form> -->
         </section>
       </article>
     </div>
   </div>
-  </body>
   </html>
 </template>
 

@@ -28,10 +28,12 @@
           </header>
           <section>
                 <div id="container2">
+                  <form>
                   <label for="id">아이디</label>
                   <input type="text" name=memberId v-model="memberId"/><br>
                   <label for="pw">패스워드</label>
                   <input type="password" name="password" v-model="password"/><br>
+                  </form>
                   <button @click="handleLogin">로그인</button>
                 </div>
           </section>

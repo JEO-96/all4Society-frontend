@@ -36,24 +36,21 @@
             <h2><a href="#">비밀번호 찾기</a></h2>
           </header>
           <section>
-            <form>
               <div class="container2">
+                <form>
                 <label for="id">아이디</label>
-                <input type="text" id="uid" name="uid" value="" placeholder="아이디" required><br>
-                <label for="phone">아이디</label>
-                <input type="text" id="phone" placeholder="전화번호" required><br>
-                <input type="button" value="인증번호 전송" placeholder="전화번호" required><br>
-                <br>
-                <input type="text" id="checkPhone" name="checkPhone" value="" placeholder="인증번호" required><br>
-                <input type="submit" value="신청"/>
-                <input type="button" value="뒤로가기">
+                <input type="text" memberId="id" name="id" v-model="id" placeholder="아이디"><br>
+                </form>
+                <button @click="handleGetHint">힌트보기</button>
+                <form>
+                <label for="answer">답변</label>
+                <input type="text" id="answer" name="answer" v-model="answer" placeholder="답변"><br>
+                </form>
+                <button @click="handleGetPw">"찾기"</button>
               </div>
-            </form>
           </section>
-
         </article>
       </div>
-
     </div>
   </div>
   </body>
@@ -61,8 +58,71 @@
 </template>
 
 <script>
+import {reactive, toRefs} from "@vue/reactivity";
+import axios from "axios";
+
 export default {
-  name: "FindPw"
+  name: "FindPw",
+  hint: '',
+  methods: {
+
+  },
+  data: function () {
+    return {
+      id: '',
+      hint: '',
+      answer: '',
+    }
+  },
+  setup () {
+    const state = reactive({
+      id:'',
+      hint:'',
+      answer:'',
+    });
+    const handleGetPw = async () => {
+      console.log('비밀번호 찾기');
+      const url = `api/member/findPw`;
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        memberId: state.id,
+        memberAnswer: state.answer,
+      }
+      console.log("body", body);
+
+      await axios.post(url, body, {headers})
+          .then(function (response){
+            console.log("response: ", response.data.memberPw);
+            alert("비밀번호는 : " + response.data.memberPw + "입니다");
+          })
+          .catch(function (error){
+            console.log('error :', error);
+          });
+    }
+    const handleGetHint = async () => {
+      console.log('힌트 가져오기');
+      const url = `api/member/getHint`;
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        memberId: state.id,
+      }
+      console.log("body: ", body);
+
+      await axios.post(url, body, {headers})
+          .then(function (response){
+            console.log("response: ", response.data.memberHint);
+            alert("다음 질문에 답변을 입력하시오: " +response.data.memberHint);
+          })
+          .catch(function (error){
+            console.log('error :', error);
+          });
+    }
+
+
+    return{
+      state, ...toRefs(state), handleGetHint, handleGetPw
+    };
+  }
 }
 </script>
 
