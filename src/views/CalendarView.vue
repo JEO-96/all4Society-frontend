@@ -16,6 +16,7 @@ export default defineComponent({
   data() {
     return {
       calendarOptions: {
+        timezone: 'local',
         plugins: [
           dayGridPlugin,
           timeGridPlugin,
@@ -56,8 +57,8 @@ export default defineComponent({
         .then(response => {
         // 스프링 부트 이벤트 데이터 받아오기
         // 받아온 이벤트 데이터에 넣어주기
-         this.currentEvents = response.data
-         this.calendarOptions.events = response.data
+         this.currentEvents = response['data']
+         this.calendarOptions.events = response['data']
          console.log("currentEvents : ", this.currentEvents)
          console.log("INITIAL_EVENTS : ", INITIAL_EVENTS)
       }).catch(e => console.error(e)) 
@@ -76,8 +77,9 @@ export default defineComponent({
       const body = {
         title : this.insertDate.title,
         start : this.insertDate.start,
-        end : this.insertDate.end-1
+        end : this.insertDate.end
       }
+      console.log("insert calendar : " , body)
       const data = axios.post(`api/calendarInsert`, body, {headers});
     },
     handleWeekendsToggle() {
@@ -85,9 +87,7 @@ export default defineComponent({
     },
     handleDateSelect(selectInfo) {
       let title = prompt('일정을 적어주세요!')
-      console.dir("select", selectInfo)
       let calendarApi = selectInfo.view.calendar
-      console.dir("select", selectInfo)
       calendarApi.unselect() // clear date selection
 
       if (title) {
@@ -126,6 +126,7 @@ export default defineComponent({
     this.getAllEventsFromServer();
   }
 })
+
 </script>
 
 <template>

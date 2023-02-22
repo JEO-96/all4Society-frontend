@@ -62,7 +62,8 @@
         <textarea id="boardCondition" v-model="boardCondition" name="boardCondition" placeholder="가입 조건 설명"></textarea><br><br>
               <textarea id="boardIntro" v-model="boardIntro" name="boardIntro" placeholder="동호회 소개"></textarea><br><br>
               <input type="text" id="boardSubIntro" v-model="boardSubIntro" name="boardSubIntro" placeholder="동호회 소제목"><br><br>
-              <!-- <input ref="image" id="input" type="file" name="image" accept="image/*" multiple="multiple"  v-model="image"><br><br> -->
+               <input ref="image" id="file" type="file" name="image" accept="image/*" multiple="multiple"><br><br>
+        
             </div>
 
           </form>
@@ -109,6 +110,8 @@
   </template>
   
 <script>
+
+const fileElement = document.querySelector('#file');
 import axios from 'axios';
 import {reactive, toRefs} from '@vue/reactivity';
 import { useRouter } from 'vue-router';
@@ -125,7 +128,8 @@ export default {
             boardMoney:'',
             boardCondition:'',
             boardSubIntro:'',
-            boardManagerPhone:''
+            boardManagerPhone:'',
+            boardImage: '',
     }
   },
   setup () {
@@ -142,7 +146,8 @@ export default {
             boardMoney:'',
             boardCondition:'',
             boardSubIntro:'',
-            boardManagerPhone:''
+            boardManagerPhone:'',
+            boardImage: '',
         });
 
         const handleJoin = async() => {
@@ -160,7 +165,8 @@ export default {
                 boardMoney : state.boardMoney,
                 boardCondition : state.boardCondition,
                 boardSubIntro : state.boardSubIntro,
-                boardManagerPhone : state.boardManagerPhone
+                boardManagerPhone : state.boardManagerPhone,
+                boardImage: fileElement.image,
             }
             console.log("boardGO");
             console.log("body : " ,body);
