@@ -104,10 +104,9 @@ export default
           <section>
             <form>
               <div class="container2">
-                <!-- <ul>
+<!--                 <ul>
                   <li v-for="item in myPage" :key="item">
-                    {{ item.memberBirth }}
-                    {{ item.memberHint }}
+                    {{ item.memberId }}
                     {{ item.memberAnswer }}
                     {{ item.memberPhone }}
                     {{ item.memberIntro }}
