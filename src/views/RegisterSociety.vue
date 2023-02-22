@@ -62,8 +62,9 @@
         <textarea id="boardCondition" v-model="boardCondition" name="boardCondition" placeholder="가입 조건 설명"></textarea><br><br>
               <textarea id="boardIntro" v-model="boardIntro" name="boardIntro" placeholder="동호회 소개"></textarea><br><br>
               <input type="text" id="boardSubIntro" v-model="boardSubIntro" name="boardSubIntro" placeholder="동호회 소제목"><br><br>
-              
+              <!-- <input ref="image" id="input" type="file" name="image" accept="image/*" multiple="multiple"  v-model="image"><br><br> -->
             </div>
+
           </form>
           <button @click="handleJoin">개설</button>&nbsp;&nbsp;
               <button @click="goBack">뒤로</button>

@@ -9,7 +9,7 @@ export default
     return {
       StudyList: [],
 	img1 : require(`@/images/pic01.jpg`),
-    img2 : require(`@/images/pic01.jpg`),
+    img2 : require(`@/images/all4FC.png`),
     img3 : require(`@/images/pic01.jpg`),
     img4 : require(`@/images/pic01.jpg`),
     img5 : require(`@/images/pic01.jpg`)
@@ -72,14 +72,15 @@ export default
 <!-- Main -->
  <div class="wrapper style1">
 
-<div class="container">
+<div class="container3">
 	<div class="row gtr-200"  v-for="StudyList in StudyList" :key="StudyList">
 	<h2 v-if="StudyList.boardName == null">동호회가 아직 없습니다!</h2>
 </div>
 	<div class="row gtr-200"  v-for="StudyList in StudyList" :key="StudyList">
 		<h2 v-if="StudyList.boardName == null">동호회가 아직 없습니다!</h2>
-		<div class="col-8 col-12-mobile" id="content">
+		<div class="col-8 col-12-mobile" id="content" style:border="1px">
 			<article id="main">
+
 				<header>
 					<h2><a href="#">{{ StudyList.boardName }}</a></h2>
 					<p>
@@ -87,7 +88,8 @@ export default
 					</p>
 					
 				</header>
-				<a class="image featured"><img :src="img2" alt="" style="float: center; width:100%; height:300px"></a>
+
+				<a class="image featured"><img :src="img2" alt="" style="float: center; width:100%; height:325px"></a>
 				<div center>
 						<h3>가입조건</h3>
 					<strong>
@@ -100,9 +102,10 @@ export default
 					<h3>회비</h3>
 					<strong>
 						{{ StudyList.boardMoney }}
-					</strong>
-					<hr>
+					</strong><hr>
+
 				</div>
+
 			</article>
 		</div>
 		<div class="col-4 col-12-mobile" id="sidebar">
@@ -124,7 +127,7 @@ export default
 
 
 				<footer>
-					<hr><h3>문의처 <br><br> {{ StudyList.boardManagerPhone }}</h3>
+					<hr><h3>문의처 <br><br> {{ StudyList.boardManagerPhone }}</h3><hr>
 				</footer>
 			</section>
 

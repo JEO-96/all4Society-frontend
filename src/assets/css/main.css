@@ -240,6 +240,11 @@ input, select, textarea {
 		max-width: 50%;
 		width: 700px;
 	}
+	.container3 {
+		margin: 0 auto;
+		max-width: 65%;
+		width: 900px;
+	}
 
 		@media screen and (max-width: 1680px) {
 
