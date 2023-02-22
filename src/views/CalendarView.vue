@@ -7,6 +7,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './event-utils'
 import axios from 'axios';
 import { listenerCount } from 'process'
+import {reactive, toRefs} from '@vue/reactivity';
 
 export default defineComponent({
   components: {
@@ -40,9 +41,12 @@ export default defineComponent({
         eventChange:
         eventRemove:
         */
+       events: []
       },
       currentEvents: [
-      ]
+      ],
+      insertDate: [],
+      removeDate: [],
     }
   }, 
   methods: {
@@ -51,35 +55,66 @@ export default defineComponent({
        axios.get(`api/calendarview`)
         .then(response => {
         // 스프링 부트 이벤트 데이터 받아오기
-        const data = response['data']
         // 받아온 이벤트 데이터에 넣어주기
-         this.currentEvents = data
-         console.log("data : ", data)
+         this.currentEvents = response.data
+         this.calendarOptions.events = response.data
          console.log("currentEvents : ", this.currentEvents)
          console.log("INITIAL_EVENTS : ", INITIAL_EVENTS)
       }).catch(e => console.error(e)) 
+    },
+    deleteData() {
+       const headers = {"Content-Type":"application/json"};
+      const body = {
+        title : this.removeDate.title,
+        start : this.removeDate.start,
+        end : this.removeDate.end
+      }
+      const data = axios.post(`api/calendarDelete`, body, {headers});
+    },
+    sendData() {
+      const headers = {"Content-Type":"application/json"};
+      const body = {
+        title : this.insertDate.title,
+        start : this.insertDate.start,
+        end : this.insertDate.end
+      }
+      const data = axios.post(`api/calendarInsert`, body, {headers});
     },
     handleWeekendsToggle() {
       this.calendarOptions.weekends = !this.calendarOptions.weekends // update a property
     },
     handleDateSelect(selectInfo) {
       let title = prompt('일정을 적어주세요!')
+      console.dir("select", selectInfo)
       let calendarApi = selectInfo.view.calendar
-
+      console.dir("select", selectInfo)
       calendarApi.unselect() // clear date selection
 
       if (title) {
         calendarApi.addEvent({
-          id: createEventId(),
           title,
           start: selectInfo.startStr,
           end: selectInfo.endStr,
         })
+        this.insertDate = {
+          title,
+          start: selectInfo.start-1,
+          end: selectInfo.end-1
+        }
+        console.log("콘솔에 찍어봐~", this.insertDate)
+        this.sendData()
       }
     },
     handleEventClick(clickInfo) {
       if (confirm(`'${clickInfo.event.title}' 일정을 삭제하시겠습니까?`)) {
         clickInfo.event.remove()
+        this.removeDate = {
+          title : clickInfo.event.title,
+          start: new Date(clickInfo.event.start-1).toISOString().replace(/T.*$/, ''),
+          end : new Date(clickInfo.event.end).toISOString().replace(/T.*$/, ''),
+        }
+        console.log("삭제 데이터 : " , this.removeDate)
+        this.deleteData()
       }
     },
     handleEvents(events) {
@@ -87,7 +122,7 @@ export default defineComponent({
       console.log(this.currentEvents)
     },
   },
-  created() {
+  mounted() {
     this.getAllEventsFromServer();
   }
 })
@@ -121,9 +156,10 @@ export default defineComponent({
       </div>
       <div class='demo-app-sidebar-section'>
         <h2 style="color: #ffffff;">모든 일정 ({{ currentEvents.length }})</h2>
+        <br>
         <ul>
           <li v-for='event in currentEvents' :key='event.id'>
-            <b style="color: #ffffff;">{{ event.start }}</b>&nbsp;
+            <b style="color: #ffffff;">{{ event.startStr }}</b>&nbsp;
             <i>{{ event.title }}</i>
           </li>
         </ul>
