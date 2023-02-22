@@ -152,5 +152,21 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
+label {
+  font-family: 'Humanbumsuk';
+}
+
+button {
+  background-color: #483949;
+  width: 170px;
+  height: 50px;
+  font-size: 17px;
+}
 </style>

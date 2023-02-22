@@ -99,7 +99,7 @@ export default
       <div class="container">
         <article id="main" class="special">
           <header>
-            <h2><a href="#">My Info</a></h2>
+            <h2>내 정보</h2>
           </header>
           <section>
             <form>
@@ -113,19 +113,15 @@ export default
                   
                   </li>
                 </ul> -->
-                <h3><label for="id">ID</label></h3>
+                <h3><label for="id">아이디</label></h3>
                 <input style="text-align: center;" type="text" name="id" id="id" v-model="memberId" disabled/><br>
-                <h3><label for="pw">Password</label></h3>
+                <h3><label for="pw">비밀번호</label></h3>
                 <input style="text-align: center;" type="password" name="pw" id="pw" v-model="memberPw"/><br>
-                <h3><label for="phone">Phone</label></h3>
+                <h3><label for="phone">핸드폰 번호</label></h3>
                 <input style="text-align: center;" type="text" name="phone" id="phone" v-model="memberPhone"/><br>
-                <h3><label for="birth">Birthday</label></h3>
+                <h3><label for="birth">생일</label></h3>
                 <input style="text-align: center;" type="text" name="birth" id="birth" v-model="memberBirth"/><br>
-                <h3><label for="hint">Question</label></h3>
-                <input style="text-align: center;" type="text" name="ques" id="ques" v-model="memberHint"/><br>
-                <h3><label for="answer">Answer</label></h3>
-                <input style="text-align: center;" type="text" name="ans" id="ans" v-model="memberAnswer"/><br>
-                <h3><label for="intro">Intro</label></h3>
+                <h3><label for="intro">자기소개</label></h3>
                 <textarea style="text-align: center;" name="intro" id="intro" v-model="memberIntro"></textarea><br>
                 <button @click="modify">수정</button>
               </div>
@@ -154,8 +150,11 @@ label {
 button {
   background-color: #483949;
   width: 150px;
-  height: 70px;
+  height: 50px;
   font-size: 20px;
+}
+textarea{
+  resize: none;
 }
 </style>
 

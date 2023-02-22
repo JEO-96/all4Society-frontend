@@ -76,7 +76,7 @@ export default defineComponent({
       const body = {
         title : this.insertDate.title,
         start : this.insertDate.start,
-        end : this.insertDate.end
+        end : this.insertDate.end-1
       }
       const data = axios.post(`api/calendarInsert`, body, {headers});
     },
@@ -98,8 +98,8 @@ export default defineComponent({
         })
         this.insertDate = {
           title,
-          start: selectInfo.start-1,
-          end: selectInfo.end-1
+          start: selectInfo.start,
+          end: selectInfo.end
         }
         console.log("콘솔에 찍어봐~", this.insertDate)
         this.sendData()
@@ -110,7 +110,7 @@ export default defineComponent({
         clickInfo.event.remove()
         this.removeDate = {
           title : clickInfo.event.title,
-          start: new Date(clickInfo.event.start-1).toISOString().replace(/T.*$/, ''),
+          start: new Date(clickInfo.event.start).toISOString().replace(/T.*$/, ''),
           end : new Date(clickInfo.event.end).toISOString().replace(/T.*$/, ''),
         }
         console.log("삭제 데이터 : " , this.removeDate)
@@ -144,14 +144,14 @@ export default defineComponent({
 </div>
   <div class='demo-app'>
     <div class='demo-app-sidebar'>
-      <div class='demo-app-sidebar-section'>
+<!--       <div class='demo-app-sidebar-section'>
         <h2 style="color: #ffffff; margin-top: 20px;">뭐넣지</h2>
         <ul>
           <li>11111111111</li>
           <li>22222222222</li>
           <li>33333333333</li>
         </ul>
-      </div>
+      </div> -->
       <div class='demo-app-sidebar-section'>
       </div>
       <div class='demo-app-sidebar-section'>
