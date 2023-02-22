@@ -39,12 +39,9 @@
               <div class="container2">
                 <form>
                 <label for="id">아이디</label>
-                <input type="text" memberId="id" name="id" v-model="id" placeholder="아이디"><br>
-                </form>
-                <button @click="handleGetHint">힌트보기</button>
-                <form>
-                <label for="answer">답변</label>
-                <input type="text" id="answer" name="answer" v-model="answer" placeholder="답변"><br>
+                <input type="text" memberId="id" name="id" v-model="memberId" placeholder="아이디"><br>
+                <label>휴대폰번호</label>
+                <input type="text" name="phone" placeholder="휴대폰번호" v-model="memberPhone"><br>
                 </form>
                 <button @click="handleGetPw">"찾기"</button>
               </div>
@@ -60,67 +57,47 @@
 <script>
 import {reactive, toRefs} from "@vue/reactivity";
 import axios from "axios";
-
+import {useRouter} from "vue-router";
 export default {
   name: "FindPw",
   hint: '',
   methods: {
 
   },
-  data: function () {
-    return {
-      id: '',
-      hint: '',
-      answer: '',
-    }
-  },
   setup () {
+    const router = useRouter();
     const state = reactive({
-      id:'',
-      hint:'',
-      answer:'',
+      memberId:'',
+      memberPhone:''
     });
     const handleGetPw = async () => {
       console.log('비밀번호 찾기');
       const url = `api/member/findPw`;
       const headers = {"Content-Type":"application/json"};
       const body = {
-        memberId: state.id,
-        memberAnswer: state.answer,
+        memberId: state.memberId,
+        memberPhone: state.memberPhone,
       }
       console.log("body", body);
-
-      await axios.post(url, body, {headers})
-          .then(function (response){
-            console.log("response: ", response.data.memberPw);
-            alert("비밀번호는 : " + response.data.memberPw + "입니다");
-          })
-          .catch(function (error){
-            console.log('error :', error);
-          });
-    }
-    const handleGetHint = async () => {
-      console.log('힌트 가져오기');
-      const url = `api/member/getHint`;
-      const headers = {"Content-Type":"application/json"};
-      const body = {
-        memberId: state.id,
+      const response = await axios.post(url, body, {headers})
+      const data = response['data']
+      console.log(data)
+      if(data.check === 1){
+              console.log(data)
+      console.log(data.check)
+      console.log(data.result)
+      alert("비밀번호는 " + data.result + "입니다");
+      await router.push({path:'/login'});
+      }else if(data.check === -1){
+        alert("번호와 아이디가 일치하는 비밀번호가 없습니다.")
+        console.log(data)
+      console.log(data.check)
+      console.log(data.result)
       }
-      console.log("body: ", body);
 
-      await axios.post(url, body, {headers})
-          .then(function (response){
-            console.log("response: ", response.data.memberHint);
-            alert("다음 질문에 답변을 입력하시오: " +response.data.memberHint);
-          })
-          .catch(function (error){
-            console.log('error :', error);
-          });
     }
-
-
-    return{
-      state, ...toRefs(state), handleGetHint, handleGetPw
+    return {
+      state, ...toRefs(state), handleGetPw
     };
   }
 }
