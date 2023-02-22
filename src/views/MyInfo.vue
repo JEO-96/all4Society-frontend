@@ -67,6 +67,14 @@ export default
 </script>
 
 <template>
+  <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
+      <router-link to="/calendarview">Calendar</router-link> |
+      <router-link to="/Logout">Logout</router-link>
+      
+
+    </nav>
   <!--<template xmlns="http://www.w3.org/1999/html"> -->
   <!DOCTYPE HTML>
   <!--

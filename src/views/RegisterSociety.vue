@@ -3,6 +3,14 @@
 </style>
 <script></script>
 <template>
+      <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/calendarview">Calendar</router-link> |
+      <router-link to="/myInfo">myInfo</router-link> |
+      <router-link to="/Logout">Logout</router-link>
+      
+
+    </nav>
     
     <!DOCTYPE HTML>
     <!--

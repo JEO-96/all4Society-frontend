@@ -1,4 +1,11 @@
 <template xmlns="http://www.w3.org/1999/html">
+      <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/login">login</router-link>|
+      <router-link to="/findId">findId</router-link>|
+      <router-link to="/findPw">findPw</router-link>
+      
+    </nav>
   <!DOCTYPE HTML>
   <!--
     Massively by Pixelarity

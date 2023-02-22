@@ -31,7 +31,15 @@ export default
 
 </script>
 <template>
-    
+        <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
+      <router-link to="/calendarview">Calendar</router-link> |
+      <router-link to="/myInfo">myInfo</router-link> |
+      <router-link to="/Logout">Logout</router-link>
+      
+
+    </nav>
     <!DOCTYPE HTML>
     <!--
       Massively by Pixelarity
@@ -89,7 +97,7 @@ export default
 					
 				</header>
 
-				<a class="image featured"><img :src="img2" alt="" style="float: center; width:100%; height:325px"></a>
+				<a class="image featured"><img :src="require(`@/images/pic01.jpg`)" alt="" style="float: center; width:100%; height:325px"></a>
 				<div center>
 						<h3>가입조건</h3>
 					<strong>

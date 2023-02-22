@@ -132,6 +132,15 @@ export default defineComponent({
 <template>
   <div id="header">
 
+
+    <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
+      <router-link to="/myInfo">myInfo</router-link> |
+      <router-link to="/Logout">Logout</router-link>
+      
+
+    </nav>
 <!-- Inner -->
   <div class="inner">
     <header>

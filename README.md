@@ -1,4 +1,4 @@
-# students
+# all4Society
 
 ## Project setup
 ```

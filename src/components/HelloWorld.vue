@@ -1,5 +1,28 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
+    <div v-if="memberId != null">
+    <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/registerSociety">동호회 게시판 생성</router-link> |
+      <router-link to="/calendarview">Calendar</router-link> |
+      <router-link to="/myInfo">myInfo</router-link> |
+      <router-link to="/Logout">Logout</router-link><br>
+      <br>
+      <strong style="color:white">{{memberId}}님이 로그인 하셨습니다.</strong>
 
+    </nav>
+    </div>
+
+     <div v-if="memberId == null">
+    <nav id="nav" >
+      <router-link to="/">Home</router-link> |
+      <router-link to="/login">login</router-link>|
+      <router-link to="/signup">signup</router-link>|
+      <router-link to="/findId">findId</router-link>|
+      <router-link to="/findPw">findPw</router-link>
+      
+    </nav>
+    </div> 
   <div id="page-wrapper">
 
 <!-- Header -->
@@ -107,14 +130,26 @@
 </template>
 
 <script>
-export default{
-  data : () => ({
-    img1 : require(`@/images/pic01.jpg`),
-    img2 : require(`@/images/pic01.jpg`),
-    img3 : require(`@/images/pic01.jpg`),
-    img4 : require(`@/images/pic01.jpg`),
-    img5 : require(`@/images/pic01.jpg`)
-  })
-  
+import axios from 'axios';
+export default
+{
+  data: function() {
+    return {
+      memberId: this.memberId
+    }
+  }, 
+  methods: {
+    board() {
+      axios.get(`api/member/index`).then((response)=> {
+        this.memberId = response.data
+        console.log(this.memberId)
+      }).catch(e=>console.error(e))
+    },
+  },
+  mounted() {
+    this.board()
+  }
+
 }
+
 </script>

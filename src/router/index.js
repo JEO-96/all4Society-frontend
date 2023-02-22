@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import StudentView from '../views/StudentView.vue'
 import CalendarView from '../views/CalendarView.vue'
 import Login from "@/views/Login.vue";
 import FindId from "@/views/FindId.vue";
 import FindPw from "@/views/FindPw.vue";
 import MyInfo from "@/views/MyInfo.vue";
 import Signup from "@/views/Signup.vue";
+import Logout from "@/views/Login.vue";
 
 //board
 import Register from "@/views/Register.vue";
@@ -53,11 +53,6 @@ const routes = [
     component: SocietyBoardStudy
   },
   {
-    path: '/student',
-    name: 'student',
-    component: StudentView
-  }, 
-  {
     path: '/calendarview',
     name: 'calendarview',
     component: CalendarView
@@ -81,6 +76,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout
   },
   {
     path: "/myInfo",
