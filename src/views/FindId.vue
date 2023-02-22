@@ -35,7 +35,7 @@
           <section>
               <div class="container2">
                 <label>휴대폰번호</label>
-                <input type="text" name="phone" placeholder="휴대폰번호" v-model="phone"><br>
+                <input type="text" name="phone" placeholder="휴대폰번호" v-model="memberPhone"><br>
                 <br>
                 <button @click="handleFindId">확인</button>
               </div>
@@ -53,17 +53,10 @@ import axios from "axios";
 import {useRouter} from "vue-router";
 
 export default {
-  name: "FindId",
-  data: function () {
-    return {
-      phone: '',
-    }
-  },
   setup () {
     const router = useRouter();
-
     const state = reactive({
-      phone:'',
+      memberPhone:'',
     });
 
     const handleFindId = async() => {
@@ -71,18 +64,33 @@ export default {
       const url = `api/member/findId`;
       const headers = {"Content-Type":"application/json"};
       const body = {
-        memberPhone: state.phone,
+        memberPhone: state.memberPhone,
       }
       console.log("body: " , body);
 
-      await axios.post(url, body, {headers})
-          .then(function (response) {
-            console.log("response", response.data.memberId);
-            alert("아이디는 " + response.data.memberId + "입니다");
-          })
-          .catch(function (error){
-            console.log('error : ', error);
-          });
+      const response = await axios.post(url, body, {headers})
+      const data = response['data']
+      console.log(data)
+      if(data.check === 1){
+              console.log(data)
+      console.log(data.check)
+      console.log(data.result)
+      alert("아이디는 " + data.result + "입니다");
+      await router.push({path:'/login'});
+
+      } else if(data.check === -1){
+        alert("번호와 일치하는 아이디가 없습니다.")
+        console.log(data)
+      console.log(data.check)
+      console.log(data.result)
+      }
+          // .then(function (response) {
+          //   console.log("response", response.data.memberId);
+          //   alert("아이디는 " + response.data.memberId + "입니다");
+          // })
+          // .catch(function (error){
+          //   console.log('error : ', error);
+          // });
     }
     return {
       state, ...toRefs(state), handleFindId

@@ -41,7 +41,6 @@
 			<h2>동호회 게시판 생성 신청</h2>
 
 		<section>
-<<<<<<< HEAD
           <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
             <form>
             <div class="container2">
@@ -53,10 +52,6 @@
             <option value="스터디">&nbsp;&nbsp;스터디&nbsp;&nbsp;</option>
             <option value="기타">&nbsp;&nbsp;기타&nbsp;&nbsp;</option>
         </select><br><br>
-=======
-      <form>
-        <div class="container2">
->>>>>>> branch 'main' of https://github.com/JEO-96/all4Society-frontend.git
 				<input type="text" id="boardName" v-model="boardName" name="boardName" placeholder="동호회명" required><br><br>
 				<input type="text" id="boardManagerName" v-model="boardManagerName" name="boardManagerName" placeholder="동호회 매니저 이름" required><br><br>
         <input type="text" id="boardManagerPhone" v-model="boardManagerPhone" name="boardManagerPhone" placeholder="동호회 문의처 번호" required><br><br>
@@ -69,15 +64,10 @@
               <input type="text" id="boardSubIntro" v-model="boardSubIntro" name="boardSubIntro" placeholder="동호회 소제목"><br><br>
               <!-- <input ref="image" id="input" type="file" name="image" accept="image/*" multiple="multiple"  v-model="image"><br><br> -->
             </div>
-<<<<<<< HEAD
 
           </form>
           <button @click="handleJoin">개설</button>&nbsp;&nbsp;
               <button @click="goBack">뒤로</button>
-=======
-      </form>
-          <!-- <v-form ref="form" @submit.prevent="submitForm"> -->
->>>>>>> branch 'main' of https://github.com/JEO-96/all4Society-frontend.git
           <!-- </v-form> -->
         </section>
 	</article>
@@ -199,16 +189,8 @@ export default {
   <style scoped>
   button {
   background-color: #483949;
-<<<<<<< HEAD
   width: 150px;
   height: 70px;
   font-size: 20px;
 }
-=======
-  width: 200px;
-  height: 70px;
-  font-size: 20px;
-}
-  
->>>>>>> branch 'main' of https://github.com/JEO-96/all4Society-frontend.git
   </style>

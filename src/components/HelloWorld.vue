@@ -1,34 +1,3 @@
-<script>
-import axios from 'axios';
-
-export default
-{
-  data: function() {
-    return {
-      boardList: []
-    }
-  }, 
-  methods: {
-    board() {
-      axios.get(`api/getBoard.json`).then((response)=> {
-        this.boardList = response.data
-        console.log(this.boardList)
-      }).catch(e=>console.error(e))
-    },
-  },
-  mounted() {
-    this.board()
-  }
-/*   data : () => ({
-    img1 : require(`@/images/pic01.jpg`),
-    img2 : require(`@/images/pic01.jpg`),
-    img3 : require(`@/images/pic01.jpg`),
-    img4 : require(`@/images/pic01.jpg`),
-    img5 : require(`@/images/pic01.jpg`)
-  }) */
-  
-}
-</script>
 <template>
 
   <div id="page-wrapper">
@@ -53,9 +22,9 @@ export default
   <section id="banner">
     <header>
       
-      <h4>올포랜드 동호회 All4SOCIETY</h4>
+      <h4>올포랜드 동호회 커뮤니티 All4SOCIETY</h4>
       <p>
-        다양한 동호회 활동을 통해
+        다양한 카테고리 별 동호회를 모집하고 신청하세요
       </p>
     </header>
   </section>
@@ -64,23 +33,15 @@ export default
   <section class="carousel" background:black>
     <div class="reel">
       
-<<<<<<< HEAD
       <router-link to="/societyBoardSport">
         <article>
-=======
-      <!-- <router-link to="/SocietyBoardSport"> -->
-        <article v-for="boardlist in boardList" :key="boardlist">
->>>>>>> branch 'main' of https://github.com/JEO-96/all4Society-frontend.git
         <br>
         <header>
-            <!-- <li v-for="boardlist in boardList" :key="boardlist"> -->
-            <p>{{ boardlist.boardName }}</p>
-            <h3>{{ boardlist.boardSubIntro }}</h3>
-            <!-- </li> -->
+          <p>스포츠</p>
+          <h3>혼자 하기 힘들었던 스포츠 관련 취미를 올포랜드 동호회에서 함께해요.</h3>
         </header>
         <p></p>
       </article>
-<<<<<<< HEAD
     </router-link>
 
     <router-link to="/societyBoardStudy">
@@ -108,14 +69,11 @@ export default
         <br>
         <header>
           <p>기타</p>
-          <h3>다양한 카테고리의 동호회를 만나보세요.</h3>
+          <h3>다양한 카테고리의 동호회를 만나보세요!</h3>
         </header>
         <p></p>
       </article>
     </router-link>
-=======
-    <!-- </router-link> -->
->>>>>>> branch 'main' of https://github.com/JEO-96/all4Society-frontend.git
     </div>
   </section>
 
@@ -129,8 +87,6 @@ export default
               <header>
                 <h3>Nisl turpis nascetur interdum?</h3>
               </header>
-              <form>
-              </form>
               <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
             </section>
 
@@ -140,6 +96,7 @@ export default
                 <li>&copy; Untitled. All rights reserved.</li>
               </ul>
             </div>
+
         </div>
 
       </div>
@@ -149,3 +106,15 @@ export default
 </div>
 </template>
 
+<script>
+export default{
+  data : () => ({
+    img1 : require(`@/images/pic01.jpg`),
+    img2 : require(`@/images/pic01.jpg`),
+    img3 : require(`@/images/pic01.jpg`),
+    img4 : require(`@/images/pic01.jpg`),
+    img5 : require(`@/images/pic01.jpg`)
+  })
+  
+}
+</script>
