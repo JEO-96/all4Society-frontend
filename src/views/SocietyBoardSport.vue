@@ -41,7 +41,7 @@ export default
     return {
       StudyList: [],
 	img1 : require(`@/images/pic01.jpg`),
-    img2 : require(`@/images/all4FC.png`),
+    img2 : require(`@/images/@`),
     img3 : require(`@/images/pic01.jpg`),
     img4 : require(`@/images/pic01.jpg`),
     img5 : require(`@/images/pic01.jpg`)
@@ -104,7 +104,7 @@ export default
 
 </div>
 
-<!-- Main -->
+
 <div class="wrapper style1">
 <div class="container3">
 <!-- Main -->
@@ -121,13 +121,13 @@ export default
 					
 				</header>
 				
-				<a class="image featured"><img :src="require(`@/images/pic01.jpg`)" alt="" style="float: center; width:100%; height:325px"></a>
+				<a class="image featured"><img :src="require(`@/images/all4FC.png`)" alt="" style="float: center; width:100%; height:325px"></a>
 			
 
 					<table>
 						<tr>
 							<th>
-								<h3 style="text-align: center;">동호회 소개</h3>
+								<h3 style="text-align: center;">동호회 소개</h3><br>
 							</th>
 						</tr>
 						<tr>

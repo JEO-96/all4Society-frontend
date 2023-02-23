@@ -94,7 +94,7 @@ export default
 					<table>
 						<tr>
 							<th>
-								<h3 style="text-align: center;">동호회 소개</h3>
+								<h3 style="text-align: center;">동호회 소개</h3><br>
 							</th>
 						</tr>
 						<tr>

@@ -40,12 +40,15 @@
           <h2><a href="#">아이디 찾기</a></h2>
         </header>
           <section>
+            <form>
               <div class="container2">
                 <label>휴대폰번호</label>
                 <input type="text" name="phone" placeholder="휴대폰번호" v-model="memberPhone"><br>
                 <br>
-                <button @click="handleFindId">확인</button>
               </div>
+              </form>
+                <button @click="handleFindId">확인</button>
+
           </section>
       </article>
     </div>
