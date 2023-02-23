@@ -56,12 +56,9 @@
               <input type="text" id="name" name="memberName" v-model="name"><br>
               <label for="phone">휴대폰 번호</label>
               <input type="text" id="phone" name="memberPhone" v-model="phone"><br>
-              <label for="birth">생년월일</label>
-              <input type="text" id="birth" name="memberBirth" v-model="birth"><br>
-              <label for="hint">비밀번호 찾기 질문</label>
-              <input type="text" id="hint" name="memberHint" v-model="hint"><br>
-              <label for="answer">비밀번호 찾기 답변</label>
-              <input type="text" id="answer" name="memberAnswer" v-model="answer"><br>
+              <!-- <label for="birth">생년월일</label>
+              <input type="calendar" id="birth" name="memberBirth" v-model="birth"><br> -->
+
               <label for="introduce">자기소개</label>
               <textarea id="introduce" v-model="introduce" name="memberIntro"></textarea><br>
               </form>

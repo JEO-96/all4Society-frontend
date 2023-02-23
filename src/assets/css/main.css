@@ -234,6 +234,11 @@ input, select, textarea {
 		max-width: 100%;
 		width: 1400px;
 	}
+	.container1 {
+		margin: 0 auto;
+		max-width: 100%;
+		width: 1150px;
+	}
 
 	.container2 {
 		margin: 0 auto;
@@ -2176,7 +2181,7 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		background: #fff;
+		background: #ffffff;
 		margin: 0 0 2em 0;
 		padding: 6em 0 6em 0;
 	}
@@ -2436,7 +2441,7 @@ input, select, textarea {
 
 	#content > hr {
 		top: 3em;
-		margin-bottom: 6em;
+		margin-bottom: 1em;
 	}
 
 	#content > section {

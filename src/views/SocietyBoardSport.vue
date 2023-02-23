@@ -1,5 +1,37 @@
 <style>  @import '../assets/css/main.css';
 
+table.type03 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid #369;
+  margin : 20px 10px;
+}
+table.type03 th {
+  width: 10px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #153d73;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+}
+table.type03 td {
+  width: 3px;
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.top {
+					margin-top: 40px;
+					margin-left: -80px;
+				}
+.wrapper.style2 {
+padding-top: -20px;
+}
 </style>
 <script>
 import axios from 'axios';
@@ -74,81 +106,96 @@ export default
 
 <!-- Main -->
 <div class="wrapper style1">
-
-<div class="container">
-	
-<!-- Main -->
- <div class="wrapper style1">
-
 <div class="container3">
-	<div class="row gtr-200"  v-for="StudyList in StudyList" :key="StudyList">
-	<h2 v-if="StudyList.boardName == null">동호회가 아직 없습니다!</h2>
-</div>
-	<div class="row gtr-200"  v-for="StudyList in StudyList" :key="StudyList">
+<!-- Main -->
+
+
+	<div class="top" v-for="StudyList in StudyList" :key="StudyList">
 		<h2 v-if="StudyList.boardName == null">동호회가 아직 없습니다!</h2>
 		<div class="col-8 col-12-mobile" id="content" style:border="1px">
 			<article id="main">
 
 				<header>
-					<h2><a href="#">{{ StudyList.boardName }}</a></h2>
-					<p>
-						{{ StudyList.boardSubIntro }}
-					</p>
+					<h2>{{ StudyList.boardName }}</h2><br>
+						<h3>동호회 회장 : {{ StudyList.boardManagerName }}</h3>
 					
 				</header>
-
+				
 				<a class="image featured"><img :src="require(`@/images/pic01.jpg`)" alt="" style="float: center; width:100%; height:325px"></a>
-				<div center>
-						<h3>가입조건</h3>
-					<strong>
-						{{ StudyList.boardCondition }}
-					</strong><br><br>
-					<h3>장소 / 시간</h3>
-					<strong>
-						장소 : {{ StudyList.boardPlace }} / 시간 : {{ StudyList.boardTime }}
-					</strong><br><br>
-					<h3>회비</h3>
-					<strong>
-						{{ StudyList.boardMoney }}
-					</strong><hr>
+			
 
-				</div>
+					<table>
+						<tr>
+							<th>
+								<h3 style="text-align: center;">동호회 소개</h3>
+							</th>
+						</tr>
+						<tr>
+							<td>
+								{{ StudyList.boardIntro }}
+							</td>
+						</tr>
+					
+				</table>
+
+				<table class="type03">
+					<tr>
+						<th>
+							<h3 style="text-align: left;">가입조건</h3>
+						</th>
+						<td>
+							<p>{{ StudyList.boardCondition }}</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h3 style="text-align: left;">장소</h3>
+						</th>
+						<td>
+							<p>{{ StudyList.boardPlace }}</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h3 style="text-align: left;">시간</h3>
+						</th>
+						<td>
+							<p>{{ StudyList.boardTime }}</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h3 style="text-align: left;">회비</h3>
+						</th>
+						<td>
+							<p>{{ StudyList.boardMoney }}</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h3 style="text-align: left;">문의처</h3>
+						</th>
+						<td>
+							<p>{{ StudyList.boardManagerPhone }}</p>
+						</td>
+					</tr>
+					
+			
+				</table>
+				<br><br><br>
 
 			</article>
 		</div>
-		<div class="col-4 col-12-mobile" id="sidebar">
-			<hr class="first" />
-			
-			<section>
-				<header>
-					<h3><a href="#">동호회 회장 : {{ StudyList.boardManagerName }}</a></h3>
-				</header>
-			</section>
-			<hr>
-			<section>
-				<header>
-					<p>소개</p>
-					<h3><a href="#">{{ StudyList.boardName }}과(와) 함께헤요</a></h3>
-					<br>{{ StudyList.boardIntro }}
-				</header>
-
-
-
-				<footer>
-					<hr><h3>문의처 <br><br> {{ StudyList.boardManagerPhone }}</h3><hr>
-				</footer>
-			</section>
-
-		</div>
+		
 	</div>
 
-	
+
 </div>
 
 </div>
 </div>
 
-</div>
+
 
 			<!-- Footer -->
   <div id="footer">
@@ -176,7 +223,6 @@ export default
     </div>
   </div>
 
-		</div>
 
 
 	</body>

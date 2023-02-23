@@ -70,7 +70,7 @@
         <textarea id="boardCondition" v-model="boardCondition" name="boardCondition" placeholder="가입 조건 설명"></textarea><br><br>
               <textarea id="boardIntro" v-model="boardIntro" name="boardIntro" placeholder="동호회 소개"></textarea><br><br>
               <input type="text" id="boardSubIntro" v-model="boardSubIntro" name="boardSubIntro" placeholder="동호회 소제목"><br><br>
-               <input ref="image" id="file" type="file" name="image" accept="image/*" multiple="multiple"><br><br>
+               <!-- <input ref="image" id="file" type="file" name="image" accept="image/*" multiple="multiple"><br><br> -->
         
             </div>
 
@@ -154,8 +154,7 @@ export default {
             boardMoney:'',
             boardCondition:'',
             boardSubIntro:'',
-            boardManagerPhone:'',
-            boardImage: '',
+            boardManagerPhone:''
         });
 
         const handleJoin = async() => {
@@ -173,8 +172,7 @@ export default {
                 boardMoney : state.boardMoney,
                 boardCondition : state.boardCondition,
                 boardSubIntro : state.boardSubIntro,
-                boardManagerPhone : state.boardManagerPhone,
-                boardImage: fileElement.image,
+                boardManagerPhone : state.boardManagerPhone
             }
             console.log("boardGO");
             console.log("body : " ,body);
